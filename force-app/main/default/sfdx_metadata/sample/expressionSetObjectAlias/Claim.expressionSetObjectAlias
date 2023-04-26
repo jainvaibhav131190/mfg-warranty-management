@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExpressionSetObjectAlias xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataType>sObject</dataType>
+    <mappings>
+        <fieldAlias>ClaimedAmount</fieldAlias>
+        <sourceFieldName>TotalClaimedAmount</sourceFieldName>
+    </mappings>
+    <mappings>
+        <fieldAlias>ClaimStatus</fieldAlias>
+        <sourceFieldName>Status</sourceFieldName>
+    </mappings>
+    <objectApiName>Claim</objectApiName>
+    <usageType>Bre</usageType>
+</ExpressionSetObjectAlias>
