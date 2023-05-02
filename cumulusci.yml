@@ -61,6 +61,10 @@ flows:
                 ui_options:
                     name: Enable Knowledge flag for Users
             6:
+                task: util_sleep
+                options:
+                    seconds: 600
+            7:
                 task: deploy
                 options:
-                    path: force-app/main/default/sfdx_metadata/sample
+                    path: force-app/main/sfdx_metadata
