@@ -63,7 +63,7 @@ flows:
             6:
                 task: util_sleep
                 options:
-                    seconds: 600
+                    seconds: 1200
             7:
                 task: deploy
                 options:
