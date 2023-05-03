@@ -3,7 +3,7 @@ project:
     name: mfg-warranty-management
     package:
         name: mfg-warranty-management
-        api_version: '55.0'
+        api_version: '57.0'
     git:
         default_branch: 'main'
         prefix_feature: 'feature/'
@@ -26,3 +26,45 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+
+    # Extracting Omniscript JSON
+    vlocity_pack_export_omnistudio:
+        class_path: cumulusci.tasks.vlocity.vlocity.VlocityRetrieveTask
+        options:
+            job_file: force-app/main/default/omnistudio/buildDefinitionOmnistudio.yaml
+        ui_options:
+            name: Extract Omniscripts, Data Raptors and Integration Procedures
+
+    enable_knowledge_for_users:
+        description: Enable Knowledge flag for Users
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: force-app/main/default/apex/KnowledgeUserPerm.apex
+        ui_options:
+            name: Enable Knowledge flag for Users
+
+flows:
+    dependencies:
+        steps:
+            3:
+                task: org_settings
+                options:
+                    definition_file: orgs/dev.json
+            4:
+                task: deploy_omni_studio_site_settings
+                ui_options:
+                    name: Deploy Remote Site Settings for Omnistudio
+            5:
+                task: enable_knowledge_for_users
+                options:
+                    path: force-app/main/default/apex/KnowledgeUserPerm.apex
+                ui_options:
+                    name: Enable Knowledge flag for Users
+            6:
+                task: util_sleep
+                options:
+                    seconds: 600
+            7:
+                task: deploy
+                options:
+                    path: force-app/main/sfdx_metadata
