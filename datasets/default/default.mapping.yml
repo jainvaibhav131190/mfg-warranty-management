@@ -21,7 +21,6 @@ Insert Account:
   - NumberOfEmployees
   - Ownership
   - Phone
-  - Rating
   - ShippingCity
   - ShippingCountry
   - ShippingGeocodeAccuracy
@@ -30,10 +29,7 @@ Insert Account:
   - ShippingPostalCode
   - ShippingState
   - ShippingStreet
-  - Sic
   - SicDesc
-  - Site
-  - TickerSymbol
   - Type
   - Website
 Insert CodeSet:
@@ -91,15 +87,11 @@ Insert Contact:
   - Birthdate
   - Department
   - Description
-  - DoNotCall
   - Email
   - EmailBouncedDate
   - EmailBouncedReason
   - Fax
   - FirstName
-  - GenderIdentity
-  - HasOptedOutOfEmail
-  - HasOptedOutOfFax
   - HomePhone
   - Jigsaw
   - LastName
@@ -123,7 +115,6 @@ Insert Contact:
   - OtherState
   - OtherStreet
   - Phone
-  - Pronouns
   - Salutation
   - Title
   lookups:
@@ -143,14 +134,9 @@ Insert Lead:
   - Company
   - Country
   - Description
-  - DoNotCall
   - Email
-  - Fax
   - FirstName
-  - GenderIdentity
   - GeocodeAccuracy
-  - HasOptedOutOfEmail
-  - HasOptedOutOfFax
   - Industry
   - IsConverted
   - IsUnreadByOwner
@@ -159,11 +145,9 @@ Insert Lead:
   - Latitude
   - LeadSource
   - Longitude
-  - MobilePhone
   - NumberOfEmployees
   - Phone
   - PostalCode
-  - Pronouns
   - Rating
   - Salutation
   - State
@@ -404,13 +388,11 @@ Insert Opportunity:
   - CloseDate
   - Description
   - ForecastCategoryName
-  - IsPrivate
   - LeadSource
   - Name
   - NextStep
   - Probability
   - StageName
-  - TotalOpportunityQuantity
   - Type
   lookups:
     AccountId:
@@ -419,9 +401,6 @@ Insert Opportunity:
     ContactId:
       table: Contact
       key_field: ContactId
-    ContractId:
-      table: Contract
-      key_field: ContractId
 Insert ClaimCoverage:
   sf_object: ClaimCoverage
   table: ClaimCoverage
