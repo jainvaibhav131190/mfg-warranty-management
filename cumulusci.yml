@@ -114,7 +114,7 @@ flows:
 plans:
     install:
         slug: install
-        title: Manufacturing Cloud Warranty Lifecycle Management
+        title: Warranty Lifecycle Management
         tier: primary
         is_listed: True
         preflight_message: "This will install Manufacturing Cloud Warranty Lifecycle Management Module"
