@@ -107,6 +107,12 @@ flows:
                 ui_options:
                     name: Deploy the Expression Set Metadata
             5:
+                task: deploy
+                options:
+                    path: force-app/main/sfdx_metadata
+                ui_options:
+                    name: Deploy the Warranty Management Module Metadata
+            6:
                 task: load_sample_data
                 ui_options:
                     name: Load Sample Data in Org
