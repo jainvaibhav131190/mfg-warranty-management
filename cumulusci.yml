@@ -50,6 +50,8 @@ flows:
                 task: org_settings
                 options:
                     definition_file: orgs/dev.json
+                ui_options:
+                    name: Enabling Org Settings
             4:
                 task: deploy_omni_studio_site_settings
                 ui_options:
@@ -61,10 +63,21 @@ flows:
                 ui_options:
                     name: Enable Knowledge flag for Users
             6:
+                task: assign_permission_sets
+                options:
+                    api_names: MfgServiceConsole
+                    user_alias: UUser,AUser
+                ui_options:
+                    name: Adding Permission Set to Admin User
+            7:
                 task: util_sleep
                 options:
                     seconds: 1200
-            7:
+                ui_options:
+                    name: Wait for Omnistudio components to be available
+            8:
                 task: deploy
                 options:
                     path: force-app/main/sfdx_metadata
+                ui_options:
+                    name: Deploy the Expression Set Metadata

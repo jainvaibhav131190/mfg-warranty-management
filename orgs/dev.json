@@ -38,6 +38,9 @@
       },
       "enableCreateEditOnArticlesTab": true,
       "enableExternalMediaContent": true
+    },
+    "PathAssistantSettings": {
+      "pathAssistantEnabled": true
     }
   }
 }

@@ -1,0 +1,520 @@
+Insert Account:
+  sf_object: Account
+  table: Account
+  fields:
+  - AccountNumber
+  - AccountSource
+  - AnnualRevenue
+  - BillingCity
+  - BillingCountry
+  - BillingGeocodeAccuracy
+  - BillingLatitude
+  - BillingLongitude
+  - BillingPostalCode
+  - BillingState
+  - BillingStreet
+  - Description
+  - Fax
+  - Industry
+  - Jigsaw
+  - Name
+  - NumberOfEmployees
+  - Ownership
+  - Phone
+  - Rating
+  - ShippingCity
+  - ShippingCountry
+  - ShippingGeocodeAccuracy
+  - ShippingLatitude
+  - ShippingLongitude
+  - ShippingPostalCode
+  - ShippingState
+  - ShippingStreet
+  - Sic
+  - SicDesc
+  - Site
+  - TickerSymbol
+  - Type
+  - Website
+Insert CodeSet:
+  sf_object: CodeSet
+  table: CodeSet
+  fields:
+  - Code
+  - CodeDescription
+  - CodeSetKey
+  - CodeSetType
+  - EndDate
+  - IsActive
+  - IsCustomCode
+  - IsPrimary
+  - Name
+  - SourceSystem
+  - StartDate
+  - SystemVersion
+Insert Product2:
+  sf_object: Product2
+  table: Product2
+  fields:
+  - Description
+  - DisplayUrl
+  - ExternalId
+  - Family
+  - IsActive
+  - Name
+  - ProductCode
+  - QuantityUnitOfMeasure
+  - StockKeepingUnit
+Insert Claim:
+  sf_object: Claim
+  table: Claim
+  fields:
+  - ClaimReason
+  - ClaimReasonType
+  - ClaimType
+  - FinalizedDate
+  - FnolChannel
+  - Name
+  - Severity
+  - Status
+  - Summary
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+Insert Contact:
+  sf_object: Contact
+  table: Contact
+  fields:
+  - AssistantName
+  - AssistantPhone
+  - Birthdate
+  - Department
+  - Description
+  - DoNotCall
+  - Email
+  - EmailBouncedDate
+  - EmailBouncedReason
+  - Fax
+  - FirstName
+  - GenderIdentity
+  - HasOptedOutOfEmail
+  - HasOptedOutOfFax
+  - HomePhone
+  - Jigsaw
+  - LastName
+  - LeadSource
+  - MailingCity
+  - MailingCountry
+  - MailingGeocodeAccuracy
+  - MailingLatitude
+  - MailingLongitude
+  - MailingPostalCode
+  - MailingState
+  - MailingStreet
+  - MobilePhone
+  - OtherCity
+  - OtherCountry
+  - OtherGeocodeAccuracy
+  - OtherLatitude
+  - OtherLongitude
+  - OtherPhone
+  - OtherPostalCode
+  - OtherState
+  - OtherStreet
+  - Phone
+  - Pronouns
+  - Salutation
+  - Title
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    ReportsToId:
+      table: Contact
+      key_field: ReportsToId
+      after: Insert Contact
+Insert Lead:
+  sf_object: Lead
+  table: Lead
+  fields:
+  - AnnualRevenue
+  - City
+  - Company
+  - Country
+  - Description
+  - DoNotCall
+  - Email
+  - Fax
+  - FirstName
+  - GenderIdentity
+  - GeocodeAccuracy
+  - HasOptedOutOfEmail
+  - HasOptedOutOfFax
+  - Industry
+  - IsConverted
+  - IsUnreadByOwner
+  - Jigsaw
+  - LastName
+  - Latitude
+  - LeadSource
+  - Longitude
+  - MobilePhone
+  - NumberOfEmployees
+  - Phone
+  - PostalCode
+  - Pronouns
+  - Rating
+  - Salutation
+  - State
+  - Status
+  - Street
+  - Title
+  - Website
+Insert ProductFaultCode:
+  sf_object: ProductFaultCode
+  table: ProductFaultCode
+  fields:
+  - ProductFamily
+  lookups:
+    FaultCodeId:
+      table: CodeSet
+      key_field: FaultCodeId
+    ProductId:
+      table: Product2
+      key_field: ProductId
+Insert ProductLaborCode:
+  sf_object: ProductLaborCode
+  table: ProductLaborCode
+  fields:
+  - EstimatedEffort
+  - ProductFamily
+  lookups:
+    LaborCodeId:
+      table: CodeSet
+      key_field: LaborCodeId
+    ProductId:
+      table: Product2
+      key_field: ProductId
+Insert WarrantyTerm:
+  sf_object: WarrantyTerm
+  table: WarrantyTerm
+  fields:
+  - Code
+  - Description
+  - EffectiveStartDate
+  - ExchangeType
+  - Exclusions
+  - ExpensesCovered
+  - ExpensesCoveredDuration
+  - ExpensesCoveredUnitOfTime
+  - IsActive
+  - IsTransferable
+  - LaborCovered
+  - LaborCoveredDuration
+  - LaborCoveredUnitOfTime
+  - PartsCovered
+  - PartsCoveredDuration
+  - PartsCoveredUnitOfTime
+  - UsageCovered
+  - WarrantyDuration
+  - WarrantyTermName
+  - WarrantyType
+  - WarrantyUnitOfTime
+Insert Asset:
+  sf_object: Asset
+  table: Asset
+  fields:
+  - City
+  - Country
+  - Description
+  - GeocodeAccuracy
+  - InstallDate
+  - IsCompetitorProduct
+  - IsInternal
+  - Latitude
+  - Longitude
+  - Name
+  - PostalCode
+  - Price
+  - PurchaseDate
+  - Quantity
+  - SerialNumber
+  - State
+  - Status
+  - Street
+  - UsageEndDate
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    AssetProvidedById:
+      table: Account
+      key_field: AssetProvidedById
+    AssetServicedById:
+      table: Account
+      key_field: AssetServicedById
+    ContactId:
+      table: Contact
+      key_field: ContactId
+    Product2Id:
+      table: Product2
+      key_field: Product2Id
+Insert Contract:
+  sf_object: Contract
+  table: Contract
+  fields:
+  - BillingCity
+  - BillingCountry
+  - BillingGeocodeAccuracy
+  - BillingLatitude
+  - BillingLongitude
+  - BillingPostalCode
+  - BillingState
+  - BillingStreet
+  - CompanySignedDate
+  - ContractTerm
+  - CustomerSignedDate
+  - CustomerSignedTitle
+  - Description
+  - OwnerExpirationNotice
+  - ShippingCity
+  - ShippingCountry
+  - ShippingGeocodeAccuracy
+  - ShippingLatitude
+  - ShippingLongitude
+  - ShippingPostalCode
+  - ShippingState
+  - ShippingStreet
+  - SpecialTerms
+  - StartDate
+  - Status
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    CustomerSignedId:
+      table: Contact
+      key_field: CustomerSignedId
+Insert ProductWarrantyTerm:
+  sf_object: ProductWarrantyTerm
+  table: ProductWarrantyTerm
+  fields:
+  - CoveredProductFamily
+  lookups:
+    CoveredProductId:
+      table: Product2
+      key_field: CoveredProductId
+    WarrantyTermId:
+      table: WarrantyTerm
+      key_field: WarrantyTermId
+Insert WarrantyTermCoverage:
+  sf_object: WarrantyTermCoverage
+  table: WarrantyTermCoverage
+  fields:
+  - IsExcluded
+  lookups:
+    CoveredCodeId:
+      table: CodeSet
+      key_field: CoveredCodeId
+    ProductPartId:
+      table: Product2
+      key_field: ProductPartId
+    WarrantyTermId:
+      table: WarrantyTerm
+      key_field: WarrantyTermId
+Insert AssetWarranty:
+  sf_object: AssetWarranty
+  table: AssetWarranty
+  fields:
+  - EndDate
+  - ExchangeType
+  - Exclusions
+  - ExpensesCovered
+  - ExpensesCoveredEndDate
+  - IsTransferable
+  - LaborCovered
+  - LaborCoveredEndDate
+  - PartsCovered
+  - PartsCoveredEndDate
+  - StartDate
+  - WarrantyType
+  lookups:
+    AssetId:
+      table: Asset
+      key_field: AssetId
+    WarrantyTermId:
+      table: WarrantyTerm
+      key_field: WarrantyTermId
+Insert Case:
+  sf_object: Case
+  table: Case
+  fields:
+  - Comments
+  - Description
+  - IsEscalated
+  - Origin
+  - Priority
+  - Reason
+  - Status
+  - Subject
+  - SuppliedCompany
+  - SuppliedEmail
+  - SuppliedName
+  - SuppliedPhone
+  - Type
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    ContactId:
+      table: Contact
+      key_field: ContactId
+Insert ClaimItem:
+  sf_object: ClaimItem
+  table: ClaimItem
+  fields:
+  - AssetUsageUnitOfMeasure
+  - AssetUsageValue
+  - Category
+  - CurrentCity
+  - CurrentCountry
+  - CurrentGeocodeAccuracy
+  - CurrentLatitude
+  - CurrentLongitude
+  - CurrentPostalCode
+  - CurrentState
+  - CurrentStreet
+  - Description
+  - FaultDate
+  - Name
+  - RepairDate
+  lookups:
+    AssetId:
+      table: Asset
+      key_field: AssetId
+    ClaimId:
+      table: Claim
+      key_field: ClaimId
+Insert Opportunity:
+  sf_object: Opportunity
+  table: Opportunity
+  fields:
+  - Amount
+  - CloseDate
+  - Description
+  - ForecastCategoryName
+  - IsPrivate
+  - LeadSource
+  - Name
+  - NextStep
+  - Probability
+  - StageName
+  - TotalOpportunityQuantity
+  - Type
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    ContactId:
+      table: Contact
+      key_field: ContactId
+    ContractId:
+      table: Contract
+      key_field: ContractId
+Insert ClaimCoverage:
+  sf_object: ClaimCoverage
+  table: ClaimCoverage
+  fields:
+  - CoverageType
+  - Description
+  - Name
+  - Status
+  lookups:
+    AssetWarrantyId:
+      table: AssetWarranty
+      key_field: AssetWarrantyId
+    CausalPartId:
+      table: Product2
+      key_field: CausalPartId
+    ClaimId:
+      table: Claim
+      key_field: ClaimId
+    ClaimItemId:
+      table: ClaimItem
+      key_field: ClaimItemId
+    FaultCodeId:
+      table: CodeSet
+      key_field: FaultCodeId
+Insert WorkOrder:
+  sf_object: WorkOrder
+  table: WorkOrder
+  fields:
+  - City
+  - Country
+  - Description
+  - Duration
+  - DurationType
+  - EndDate
+  - GeocodeAccuracy
+  - Latitude
+  - Longitude
+  - PostalCode
+  - Priority
+  - StartDate
+  - State
+  - Status
+  - Street
+  - Subject
+  - Tax
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    AssetId:
+      table: Asset
+      key_field: AssetId
+    CaseId:
+      table: Case
+      key_field: CaseId
+    ContactId:
+      table: Contact
+      key_field: ContactId
+Insert ClaimCoveragePaymentDetail:
+  sf_object: ClaimCoveragePaymentDetail
+  table: ClaimCoveragePaymentDetail
+  fields:
+  - AdjustedAmount
+  - ChargeType
+  - ClaimedAmount
+  - Comment
+  - Description
+  - Name
+  - Quantity
+  - Status
+  lookups:
+    ChargeTypeCodeId:
+      table: CodeSet
+      key_field: ChargeTypeCodeId
+    ClaimCoverageId:
+      table: ClaimCoverage
+      key_field: ClaimCoverageId
+    ReplacementPartId:
+      table: Product2
+      key_field: ReplacementPartId
+Insert RecordAlert:
+  sf_object: RecordAlert
+  table: RecordAlert
+  fields:
+  - Description
+  - EffectiveDate
+  - IsActive
+  - Severity
+  - SnoozeUntilDate
+  - SourceSystemIdentifier
+  - Subject
+  - ValidUntilDate
+  lookups:
+    WhatId:
+      table: Asset
+      key_field: WhatId
