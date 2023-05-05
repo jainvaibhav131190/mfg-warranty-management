@@ -39,6 +39,9 @@
       "enableCreateEditOnArticlesTab": true,
       "enableExternalMediaContent": true
     },
+    "MfgServiceConsoleSettings": {
+      "enableMfgServiceConsole": true
+    },
     "PathAssistantSettings": {
       "pathAssistantEnabled": true
     }

@@ -9,6 +9,7 @@ project:
         prefix_feature: 'feature/'
         prefix_beta: 'beta/'
         prefix_release: 'release/'
+        repo_url: https://github.com/Industries-SolutionFactory-Connect/mfg-warranty-management
     source_format: sfdx
 
 tasks:
@@ -53,31 +54,85 @@ flows:
                 ui_options:
                     name: Enabling Org Settings
             4:
-                task: deploy_omni_studio_site_settings
-                ui_options:
-                    name: Deploy Remote Site Settings for Omnistudio
-            5:
                 task: enable_knowledge_for_users
                 options:
                     path: force-app/main/default/apex/KnowledgeUserPerm.apex
                 ui_options:
                     name: Enable Knowledge flag for Users
-            6:
+            5:
                 task: assign_permission_sets
                 options:
                     api_names: MfgServiceConsole
                     user_alias: UUser,AUser
                 ui_options:
                     name: Adding Permission Set to Admin User
-            7:
+            6:
                 task: util_sleep
                 options:
-                    seconds: 1200
+                    seconds: 600
                 ui_options:
                     name: Wait for Omnistudio components to be available
-            8:
+            7:
                 task: deploy
                 options:
                     path: force-app/main/sfdx_metadata
                 ui_options:
                     name: Deploy the Expression Set Metadata
+
+    mfg_wm_install:
+        steps:
+            1:
+                task: org_settings
+                options:
+                    definition_file: orgs/dev.json
+                ui_options:
+                    name: Enabling Org Settings
+            2:
+                task: enable_knowledge_for_users
+                options:
+                    path: force-app/main/default/apex/KnowledgeUserPerm.apex
+                ui_options:
+                    name: Enable Knowledge flag for Users
+            3:
+                task: assign_permission_sets
+                options:
+                    api_names: MfgServiceConsole
+                    user_alias: UUser,AUser
+                ui_options:
+                    name: Adding Permission Set to Admin User
+            4:
+                task: deploy
+                options:
+                    path: force-app/main/sfdx_metadata
+                ui_options:
+                    name: Deploy the Expression Set Metadata
+            5:
+                task: load_sample_data
+                ui_options:
+                    name: Load Sample Data in Org
+
+plans:
+    install:
+        slug: install
+        title: Manufacturing Cloud Warranty Lifecycle Management
+        tier: primary
+        is_listed: True
+        preflight_message: "This will install Manufacturing Cloud Warranty Lifecycle Management Module"
+        post_install_message: "Thanks for installing Manufacturing Cloud Warranty Lifecycle Management Module. "
+        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
+        checks:
+          - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
+            action: error
+            message: "You need WarrantyLifecycleMgmtPsl licence to use this feature. Contact your Administrator."
+          - when: "'WarrantyMgmtForExprcCloudPsl' not in tasks.get_available_permission_set_licenses()"
+            action: error
+            message: "You need WarrantyMgmtForExprcCloudPsl licence to use this feature. Contact your Administrator."
+          - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_assigned_permission_sets()"
+            action: error
+            message: "You need WarrantyLifecycleMgmtPsl to use this feature. Contact your Administrator."
+          - when: "'ClaimsManagementFoundationPsl' not in tasks.get_assigned_permission_sets()"
+            action: error
+            message: "You need ClaimsManagementFoundationPsl to use this feature. Contact your Administrator." 
+        steps:
+            1:
+                flow: mfg_wm_install
