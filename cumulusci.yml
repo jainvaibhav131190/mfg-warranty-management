@@ -105,11 +105,11 @@ flows:
                 options:
                     path: force-app/main/sfdx_metadata
                 ui_options:
-                    name: Deploy the Expression Set Metadata
+                    name: Deploy the Expression Set Alias Metadata
             5:
                 task: deploy
                 options:
-                    path: force-app/main/sfdx_metadata
+                    path: force-app/main/default
                 ui_options:
                     name: Deploy the Warranty Management Module Metadata
             6:
