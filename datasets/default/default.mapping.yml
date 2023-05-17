@@ -32,6 +32,7 @@ Insert Account:
   - SicDesc
   - Type
   - Website
+
 Insert CodeSet:
   sf_object: CodeSet
   table: CodeSet
@@ -48,6 +49,7 @@ Insert CodeSet:
   - SourceSystem
   - StartDate
   - SystemVersion
+
 Insert Product2:
   sf_object: Product2
   table: Product2
@@ -61,6 +63,7 @@ Insert Product2:
   - ProductCode
   - QuantityUnitOfMeasure
   - StockKeepingUnit
+
 Insert Claim:
   sf_object: Claim
   table: Claim
@@ -78,6 +81,7 @@ Insert Claim:
     AccountId:
       table: Account
       key_field: AccountId
+
 Insert Contact:
   sf_object: Contact
   table: Contact
@@ -125,36 +129,7 @@ Insert Contact:
       table: Contact
       key_field: ReportsToId
       after: Insert Contact
-Insert Lead:
-  sf_object: Lead
-  table: Lead
-  fields:
-  - AnnualRevenue
-  - City
-  - Company
-  - Country
-  - Description
-  - Email
-  - FirstName
-  - GeocodeAccuracy
-  - Industry
-  - IsConverted
-  - IsUnreadByOwner
-  - Jigsaw
-  - LastName
-  - Latitude
-  - LeadSource
-  - Longitude
-  - NumberOfEmployees
-  - Phone
-  - PostalCode
-  - Rating
-  - Salutation
-  - State
-  - Status
-  - Street
-  - Title
-  - Website
+
 Insert ProductFaultCode:
   sf_object: ProductFaultCode
   table: ProductFaultCode
@@ -167,6 +142,7 @@ Insert ProductFaultCode:
     ProductId:
       table: Product2
       key_field: ProductId
+
 Insert ProductLaborCode:
   sf_object: ProductLaborCode
   table: ProductLaborCode
@@ -180,6 +156,7 @@ Insert ProductLaborCode:
     ProductId:
       table: Product2
       key_field: ProductId
+
 Insert WarrantyTerm:
   sf_object: WarrantyTerm
   table: WarrantyTerm
@@ -205,6 +182,7 @@ Insert WarrantyTerm:
   - WarrantyTermName
   - WarrantyType
   - WarrantyUnitOfTime
+
 Insert Asset:
   sf_object: Asset
   table: Asset
@@ -244,42 +222,7 @@ Insert Asset:
     Product2Id:
       table: Product2
       key_field: Product2Id
-Insert Contract:
-  sf_object: Contract
-  table: Contract
-  fields:
-  - BillingCity
-  - BillingCountry
-  - BillingGeocodeAccuracy
-  - BillingLatitude
-  - BillingLongitude
-  - BillingPostalCode
-  - BillingState
-  - BillingStreet
-  - CompanySignedDate
-  - ContractTerm
-  - CustomerSignedDate
-  - CustomerSignedTitle
-  - Description
-  - OwnerExpirationNotice
-  - ShippingCity
-  - ShippingCountry
-  - ShippingGeocodeAccuracy
-  - ShippingLatitude
-  - ShippingLongitude
-  - ShippingPostalCode
-  - ShippingState
-  - ShippingStreet
-  - SpecialTerms
-  - StartDate
-  - Status
-  lookups:
-    AccountId:
-      table: Account
-      key_field: AccountId
-    CustomerSignedId:
-      table: Contact
-      key_field: CustomerSignedId
+
 Insert ProductWarrantyTerm:
   sf_object: ProductWarrantyTerm
   table: ProductWarrantyTerm
@@ -292,6 +235,7 @@ Insert ProductWarrantyTerm:
     WarrantyTermId:
       table: WarrantyTerm
       key_field: WarrantyTermId
+
 Insert WarrantyTermCoverage:
   sf_object: WarrantyTermCoverage
   table: WarrantyTermCoverage
@@ -307,6 +251,7 @@ Insert WarrantyTermCoverage:
     WarrantyTermId:
       table: WarrantyTerm
       key_field: WarrantyTermId
+
 Insert AssetWarranty:
   sf_object: AssetWarranty
   table: AssetWarranty
@@ -330,6 +275,7 @@ Insert AssetWarranty:
     WarrantyTermId:
       table: WarrantyTerm
       key_field: WarrantyTermId
+
 Insert Case:
   sf_object: Case
   table: Case
@@ -354,6 +300,10 @@ Insert Case:
     ContactId:
       table: Contact
       key_field: ContactId
+    AssetId:
+      table: Asset
+      key_field: AssetId
+
 Insert ClaimItem:
   sf_object: ClaimItem
   table: ClaimItem
@@ -380,27 +330,7 @@ Insert ClaimItem:
     ClaimId:
       table: Claim
       key_field: ClaimId
-Insert Opportunity:
-  sf_object: Opportunity
-  table: Opportunity
-  fields:
-  - Amount
-  - CloseDate
-  - Description
-  - ForecastCategoryName
-  - LeadSource
-  - Name
-  - NextStep
-  - Probability
-  - StageName
-  - Type
-  lookups:
-    AccountId:
-      table: Account
-      key_field: AccountId
-    ContactId:
-      table: Contact
-      key_field: ContactId
+
 Insert ClaimCoverage:
   sf_object: ClaimCoverage
   table: ClaimCoverage
@@ -425,6 +355,7 @@ Insert ClaimCoverage:
     FaultCodeId:
       table: CodeSet
       key_field: FaultCodeId
+
 Insert WorkOrder:
   sf_object: WorkOrder
   table: WorkOrder
@@ -459,6 +390,7 @@ Insert WorkOrder:
     ContactId:
       table: Contact
       key_field: ContactId
+
 Insert ClaimCoveragePaymentDetail:
   sf_object: ClaimCoveragePaymentDetail
   table: ClaimCoveragePaymentDetail
@@ -481,6 +413,7 @@ Insert ClaimCoveragePaymentDetail:
     ReplacementPartId:
       table: Product2
       key_field: ReplacementPartId
+
 Insert RecordAlert:
   sf_object: RecordAlert
   table: RecordAlert

@@ -33,9 +33,6 @@ CREATE TABLE "Account" (
 	"Website" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Account" VALUES(1,'','','100000000.0','New York','USA','','','','31349','NY','10 Main Rd.','','(212) 555-5555','Manufacturing','','Acme','680','','(212) 555-5555','New York','USA','','','','31349','NY','10 Main Rd.','','Prospect','');
-INSERT INTO "Account" VALUES(2,'','','','San Francisco','USA','','','','94105','CA','The Landmark @ One Market, Suite 300','Founded in March 1999, salesforce.com (http://www.salesforce.com) builds and delivers customer relationship management (CRM) applications as scalable online services. The salesforce.com product suite - Team Edition, Professional Edition, Enterprise Edition, Wireless Edition and Offline Edition - gives companies of all sizes a complete 360-degree view of the customer. The company''s award-winning CRM solutions provide integrated online sales force automation, customer service and support management, and marketing automation applications to help companies meet the complex challenges of global customer communication. Salesforce.com has received considerable recognition in the industry, including Editors'' Choice and two Five-Star ratings from PC Magazine, two Deploy Awards from InfoWorld, Red Herring 100, Upside Hot 100, Investor''s Choice Award from Enterprise Outlook, Editors'' Choice from TMCLabs, Top 10 CRM Implementation from Aberdeen Group, and InfoWorld''s 2001 CRM Technology of the Year. Founded in 1999, salesforce.com is headquartered in San Francisco, with offices in Europe and Asia.','(415) 901-7040','Technology','','salesforce.com','','','(415) 901-7000','San Francisco','USA','','','','94105','CA','The Landmark @ One Market, Suite 300','','Customer','http://www.salesforce.com');
-INSERT INTO "Account" VALUES(3,'','','','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','GBM is the worldwide leader in technology news and information on the Web and the producer of the longest-running and farthest-reaching television shows about technology. GBM''s network of sites combines breakthrough interactive technology with engaging content and design and is consistently ranked as the Internet''s leading content network in terms of both audience size and revenue, serving millions of users each day. The company''s television programming is broadcast by the USA Network and the Sci-Fi Channel to more than 70 million households and is syndicated to broadcast television stations in the nation''s top 120 markets, including the top 10 markets.','','Media','','Global Media','14668','','(905) 555-1212','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','Prospect','');
 INSERT INTO "Account" VALUES(4,'','','','New York','USA','','','','31349','NY','10 Main Rd.','','(212) 555-5555','Manufacturing','','Acme Partners','','','(212) 555-5555','New York','USA','','','','31349','NY','10 Main Rd.','','Customer','http://www.acmepartner.com');
 
 CREATE TABLE "Asset" (
@@ -107,13 +104,11 @@ CREATE TABLE "Case" (
 	"Type" VARCHAR(255), 
 	"AccountId" VARCHAR(255), 
 	"ContactId" VARCHAR(255), 
+	"AssetId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Case" VALUES(1,'','','False','Phone','High','Instructions not clear','New','Sample Case 2: The widgets we received are the wrong size.','','','','','','1','4');
-INSERT INTO "Case" VALUES(2,'','','False','Phone','Low','','On Hold','Sample Case 3: Cannot track our order.','','','','','','1','4');
-INSERT INTO "Case" VALUES(3,'','','False','Phone','High','','Escalated','Sample Case: Our Widgets have not been delivered.','','','','','','3','10');
-INSERT INTO "Case" VALUES(4,'','','False','Phone','Medium','','New','Quarterly Service - June 2023','','','','','Problem','4','2');
-INSERT INTO "Case" VALUES(5,'','When is the next service due for the asset ''Marine Generator - MGX750XYMFG''','False','Phone','Medium','','New','Asset Service','','','','','Question','4','2');
+INSERT INTO "Case" VALUES(4,'','','False','Phone','Medium','','New','Quarterly Service - June 2023','','','','','Problem','4','2','');
+INSERT INTO "Case" VALUES(5,'','When is the next service due for the asset ''Marine Generator - MGX750XYMFG''','False','Phone','Medium','','New','Asset Service','','','','','Question','4','2','1');
 
 CREATE TABLE "Claim" (
 	id INTEGER NOT NULL, 
@@ -262,106 +257,6 @@ CREATE TABLE "Contact" (
 INSERT INTO "Contact" VALUES(1,'','','','','','edy@yahoo.com','','','(212) 555-5555','Edward','','','Stamos','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','Mr.','Manager','4','');
 INSERT INTO "Contact" VALUES(2,'','','','','','howdy@yahoo.com','','','(212) 555-5555','Howard','','','Jones','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','Mr.','Buyer','4','');
 INSERT INTO "Contact" VALUES(3,'','','','','','leny@yahoo.com','','','(212) 555-5555','Leanne','','','Tomlin','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','Ms.','VP Customer Support','4','');
-INSERT INTO "Contact" VALUES(4,'','','','','','info@salesforce.com','','','(212) 555-5555','Edward','','','Stamos','','New York City','USA','','','','31349','NY','10 Main Rd.','','New York City','USA','','','','','31349','NY','10 Main Rd.','(212) 555-5555','','President and CEO','1','');
-INSERT INTO "Contact" VALUES(5,'','','','','','info@salesforce.com','','','(212) 555-5555','Howard','','','Jones','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','','Buyer','1','');
-INSERT INTO "Contact" VALUES(6,'','','','','','info@salesforce.com','','','(212) 555-5555','Leanne','','','Tomlin','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','','VP Customer Support','1','');
-INSERT INTO "Contact" VALUES(7,'','','','','Marc R. Benioff is chairman and CEO of salesforce.com. He founded the company in March 1999 with the idea to create an information utility that would make traditional enterprise software technology and business models obsolete. A veteran of 25 years in the software industry, he is now regarded as a pioneer of "The End Of Software," demonstrating how on-demand applications can replace traditional software to deliver immediate benefit at reduced risk. In May 2003, Benioff was appointed by President George W. Bush as co-chair of the President''s Information Technology Advisory Committee (PITAC), a bi-partisan organization of business leaders and academics charged to advise The President on how to maintain the United States'' preeminent position in information technology.','info@salesforce.com','','','(415) 901-7040','Marc','','','Benioff','','San Francisco','USA','','','','94105','CA','The Landmark @ One Market, Suite 300','','San Francisco','USA','','','','','94105','CA','The Landmark @ One Market, Suite 300','(415) 901-7000','Mr.','Executive Officer','2','');
-INSERT INTO "Contact" VALUES(8,'','','','','','info@salesforce.com','','','','Geoff','','','Minor','','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','Toronto','Canada','','','','','L4B 1Y3','Ontario','150 Chestnut Street','(415) 555-1212','','President','3','');
-INSERT INTO "Contact" VALUES(9,'','','','','Carole White is looking at moving forward with our products and will act as the champion for us.','info@salesforce.com','','','','Carole','','','White','Employee Referral','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','','','','','','','','','','(415) 555-1212','','VP Sales','3','8');
-INSERT INTO "Contact" VALUES(10,'','','','','','info@salesforce.com','','','(555) 555-1212','Jon','','','Amos','','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','','','','','','','','','','(905) 555-1212','','Sales Manager','3','9');
-
-CREATE TABLE "Contract" (
-	id INTEGER NOT NULL, 
-	"BillingCity" VARCHAR(255), 
-	"BillingCountry" VARCHAR(255), 
-	"BillingGeocodeAccuracy" VARCHAR(255), 
-	"BillingLatitude" VARCHAR(255), 
-	"BillingLongitude" VARCHAR(255), 
-	"BillingPostalCode" VARCHAR(255), 
-	"BillingState" VARCHAR(255), 
-	"BillingStreet" VARCHAR(255), 
-	"CompanySignedDate" VARCHAR(255), 
-	"ContractTerm" VARCHAR(255), 
-	"CustomerSignedDate" VARCHAR(255), 
-	"CustomerSignedTitle" VARCHAR(255), 
-	"Description" VARCHAR(255), 
-	"OwnerExpirationNotice" VARCHAR(255), 
-	"ShippingCity" VARCHAR(255), 
-	"ShippingCountry" VARCHAR(255), 
-	"ShippingGeocodeAccuracy" VARCHAR(255), 
-	"ShippingLatitude" VARCHAR(255), 
-	"ShippingLongitude" VARCHAR(255), 
-	"ShippingPostalCode" VARCHAR(255), 
-	"ShippingState" VARCHAR(255), 
-	"ShippingStreet" VARCHAR(255), 
-	"SpecialTerms" VARCHAR(255), 
-	"StartDate" VARCHAR(255), 
-	"Status" VARCHAR(255), 
-	"AccountId" VARCHAR(255), 
-	"CustomerSignedId" VARCHAR(255),
-	PRIMARY KEY (id)
-);
-INSERT INTO "Contract" VALUES(1,'','','','','','','','','','12','','','','','','','','','','','','','','2021-03-17','Draft','1','');
-
-CREATE TABLE "Lead" (
-	id INTEGER NOT NULL, 
-	"AnnualRevenue" VARCHAR(255), 
-	"City" VARCHAR(255), 
-	"Company" VARCHAR(255), 
-	"Country" VARCHAR(255), 
-	"Description" VARCHAR(255), 
-	"Email" VARCHAR(255), 
-	"FirstName" VARCHAR(255), 
-	"GeocodeAccuracy" VARCHAR(255), 
-	"Industry" VARCHAR(255), 
-	"IsConverted" VARCHAR(255), 
-	"IsUnreadByOwner" VARCHAR(255), 
-	"Jigsaw" VARCHAR(255), 
-	"LastName" VARCHAR(255), 
-	"Latitude" VARCHAR(255), 
-	"LeadSource" VARCHAR(255), 
-	"Longitude" VARCHAR(255), 
-	"NumberOfEmployees" VARCHAR(255), 
-	"Phone" VARCHAR(255), 
-	"PostalCode" VARCHAR(255), 
-	"Rating" VARCHAR(255), 
-	"Salutation" VARCHAR(255), 
-	"State" VARCHAR(255), 
-	"Status" VARCHAR(255), 
-	"Street" VARCHAR(255), 
-	"Title" VARCHAR(255), 
-	"Website" VARCHAR(255), 
-	PRIMARY KEY (id)
-);
-INSERT INTO "Lead" VALUES(1,'33147.0','New York','MedLife, Inc.','United States','','info@salesforce.com','Sarah','','Insurance','False','True','','Loehr','','Employee Referral','','48500','(555) 555-1212','10010','','','New York','Contacted','One Jones Avenue','System Administrator','');
-INSERT INTO "Lead" VALUES(2,'16867.0','Marlborough','3C Systems','United States','','info@salesforce.com','John','','Aerospace & Defense','False','True','','Gardner','','Other','','87200','(555) 555-1212','1752','','Mr.','Massachusetts','New','1 Boston Rd','Exec VP','');
-INSERT INTO "Lead" VALUES(3,'28212.0','Hartford','Universal Technologies','United States','','info@salesforce.com','Andy','','Aerospace & Defense','False','True','','Smith','','Advertisement','','155000','(555) 555-1212','6103','','Mr.','Connecticut','New','Universal Building','Vice President','');
-INSERT INTO "Lead" VALUES(4,'19879.0','Hartford','BigLife Inc.','United States','','info@salesforce.com','Jim','','Insurance','False','True','','Steele','','Employee Referral','','28000','(555) 555-1212','6156','','','Connecticut','New','11 Farm Avenue','Senior VP','');
-
-CREATE TABLE "Opportunity" (
-	id INTEGER NOT NULL, 
-	"Amount" VARCHAR(255), 
-	"CloseDate" VARCHAR(255), 
-	"Description" VARCHAR(255), 
-	"ForecastCategoryName" VARCHAR(255), 
-	"LeadSource" VARCHAR(255), 
-	"Name" VARCHAR(255), 
-	"NextStep" VARCHAR(255), 
-	"Probability" VARCHAR(255), 
-	"StageName" VARCHAR(255), 
-	"Type" VARCHAR(255), 
-	"AccountId" VARCHAR(255), 
-	"ContactId" VARCHAR(255),  
-	PRIMARY KEY (id)
-);
-INSERT INTO "Opportunity" VALUES(1,'500000.0','2020-12-27','Initial deal for 5000 widgets. We expect follow-on business with a potential upside of 40000 additional widgets over the next 12 months.','Closed','Advertisement','salesforce.com - 5000 Widgets','Closed!','100.0','Closed Won','New Business','3','');
-INSERT INTO "Opportunity" VALUES(2,'50000.0','2020-12-27','Initial deal for 500 widgets. We expect follow-on business with a potential upside of 4000 additional widgets over the next 12 months.','Closed','Advertisement','salesforce.com - 500 Widgets','Closed!','100.0','Closed Won','Existing Business','3','');
-INSERT INTO "Opportunity" VALUES(3,'40000.0','2021-02-27','The deal is at 60% because they are still at the sales process stage of getting buy-in from the key decision makers.','Pipeline','Partner','Global Media - 400 Widgets','','60.0','Id. Decision Makers','New Business','3','');
-INSERT INTO "Opportunity" VALUES(4,'140000.0','2021-01-29','The deal is at  50% because they are at the sales process stage of evaluating our ROI justification.','Pipeline','Trade Show','Acme - 1,200 Widgets','Need estimate','50.0','Value Proposition','Existing Business','1','');
-INSERT INTO "Opportunity" VALUES(5,'70000.0','2021-03-27','The deal is at 20% because they are at the sales process stage of defining their requirements.  It is not clear whether our solutions are a good fit or not but they are willing to discuss this in detail.','Pipeline','Trade Show','Acme - 600 Widgets','Need estimate','20.0','Needs Analysis','New Business','1','');
-INSERT INTO "Opportunity" VALUES(6,'20000.0','2021-05-30','The deal is at 10% because they are at the sales process stage of evaluating just being converted from a lead.  No formal sales engagement has taken place yet.','Pipeline','Word of mouth','Acme - 200 Widgets','Need estimate','10.0','Prospecting','Existing Business','1','');
-INSERT INTO "Opportunity" VALUES(7,'100000.0','2021-01-29','They are interested in our widgets!  The deal is at 90% because they are at the sales process stage of negotiating the finer points of a proposal that we submitted.  We are negotiating with their key decision makers and are confident that this deal will close soon.','Pipeline','Advertisement','salesforce.com - 1,000 Widgets','Close the deal!','90.0','Negotiation/Review','New Business','2','');
-INSERT INTO "Opportunity" VALUES(8,'20000.0','2021-03-29','More widgets required.  The deal is at 50% because they are still at the sales process stage of evaluating the business/value justification that we submitted.','Pipeline','Partner','salesforce.com - 2,000 Widgets','Meet at Widget Conference','50.0','Value Proposition','Existing Business','2','');
 
 CREATE TABLE "Product2" (
 	id INTEGER NOT NULL, 

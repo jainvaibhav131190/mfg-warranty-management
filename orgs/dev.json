@@ -1,6 +1,6 @@
 {
   "orgName": "mfg-warranty-management - Dev Org",
-  "template": "0TTB0000001SFmb",
+  "template": "0TTB0000001SaS3",
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
@@ -41,6 +41,12 @@
     },
     "MfgServiceConsoleSettings": {
       "enableMfgServiceConsole": true
+    },
+    "industriesManufacturingSettings":{
+      "enableIndManufacturing": true,
+      "enableIndustriesMfgAccountForecast": true,
+      "enableIndustriesMfgAdvForecast": true,
+      "enableIndustriesMfgTargets": true
     },
     "PathAssistantSettings": {
       "pathAssistantEnabled": true
