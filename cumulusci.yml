@@ -70,12 +70,12 @@ flows:
                     user_alias: UUser,AUser
                 ui_options:
                     name: Adding Permission Set to Admin User
-            7:
-                task: util_sleep
-                options:
-                    seconds: 600
-                ui_options:
-                    name: Wait for Omnistudio components to be available
+            # 7:
+            #     task: util_sleep
+            #     options:
+            #         seconds: 600
+            #     ui_options:
+            #         name: Wait for Omnistudio components to be available
             8:
                 task: deploy
                 options:
@@ -124,13 +124,7 @@ flows:
                 task: load_sample_data
                 ui_options:
                     name: Load Sample Data in Org
-    
-    test_flow:
-        steps:
-            1:
-                task: load_sample_data
-                ui_options:
-                    name: Load Sample Data in Org
+
 
 plans:
     install:
