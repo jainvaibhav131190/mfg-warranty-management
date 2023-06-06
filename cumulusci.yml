@@ -66,8 +66,7 @@ flows:
             6:
                 task: assign_permission_sets
                 options:
-                    api_names: MfgServiceConsole
-                    user_alias: UUser,AUser
+                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
                 ui_options:
                     name: Adding Permission Set to Admin User
             # 7:
@@ -104,8 +103,7 @@ flows:
             4:
                 task: assign_permission_sets
                 options:
-                    api_names: MfgServiceConsole
-                    user_alias: UUser,AUser
+                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
                 ui_options:
                     name: Adding Permission Set to Admin User
             5:
@@ -141,16 +139,13 @@ plans:
         checks:
           - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
-            message: "You need WarrantyLifecycleMgmtPsl licence to use this feature. Contact your Administrator."
+            message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
           - when: "'WarrantyMgmtForExprcCloudPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
-            message: "You need WarrantyMgmtForExprcCloudPsl licence to use this feature. Contact your Administrator."
-          - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_assigned_permission_sets()"
+            message: "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator."
+          - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
-            message: "You need WarrantyLifecycleMgmtPsl to use this feature. Contact your Administrator."
-          - when: "'ClaimsManagementFoundationPsl' not in tasks.get_assigned_permission_sets()"
-            action: error
-            message: "You need ClaimsManagementFoundationPsl to use this feature. Contact your Administrator." 
+            message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator." 
         steps:
             1:
                 flow: mfg_wm_install
@@ -165,16 +160,13 @@ plans:
         checks:
           - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
-            message: "You need WarrantyLifecycleMgmtPsl licence to use this feature. Contact your Administrator."
+            message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
           - when: "'WarrantyMgmtForExprcCloudPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
-            message: "You need WarrantyMgmtForExprcCloudPsl licence to use this feature. Contact your Administrator."
-          - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_assigned_permission_sets()"
+            message: "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator."
+          - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
-            message: "You need WarrantyLifecycleMgmtPsl to use this feature. Contact your Administrator."
-          - when: "'ClaimsManagementFoundationPsl' not in tasks.get_assigned_permission_sets()"
-            action: error
-            message: "You need ClaimsManagementFoundationPsl to use this feature. Contact your Administrator." 
+            message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator." 
         steps:
             1:
                 flow: mfg_wm_data
