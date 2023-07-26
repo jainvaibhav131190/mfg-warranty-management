@@ -14,12 +14,6 @@
         <closed>false</closed>
     </standardValue>
     <standardValue>
-        <fullName>Manual Review Needed</fullName>
-        <default>false</default>
-        <label>Manual Review Needed</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
         <fullName>Under Review</fullName>
         <default>false</default>
         <label>Under Review</label>
@@ -32,15 +26,21 @@
         <closed>false</closed>
     </standardValue>
     <standardValue>
-        <fullName>Approved</fullName>
-        <default>false</default>
-        <label>Approved</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
         <fullName>Rejected</fullName>
         <default>false</default>
         <label>Rejected</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manual Review Needed</fullName>
+        <default>false</default>
+        <label>Manual Review Needed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
         <closed>false</closed>
     </standardValue>
 </StandardValueSet>

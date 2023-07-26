@@ -48,6 +48,12 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
+                <componentName>builder_industries_insurance:lifeEvents</componentName>
+                <identifier>builder_industries_insurance_lifeEvents</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>timelineConfigs</name>
                     <valueList>

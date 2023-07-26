@@ -19,6 +19,10 @@
                 <behavior>Required</behavior>
                 <field>WarrantyUnitOfTime</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UsageCovered</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -32,6 +36,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Pricebook2Id</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UsageCoveredUomId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -83,7 +91,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PartsCovered</field>
+                <field>LaborCoveredDuration</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>LaborCoveredUnitOfTime</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -91,7 +106,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>LaborCoveredUnitOfTime</field>
+                <field>ExpensesCoveredDuration</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -101,15 +116,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>LaborCoveredDuration</field>
+                <field>PartsCovered</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PartsCoveredDuration</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ExpensesCoveredDuration</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Order Received</fullName>
+        <default>false</default>
+        <label>Order Received</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Manufactured</fullName>
+        <default>false</default>
+        <label>Manufactured</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Delivered</fullName>
+        <default>false</default>
+        <label>Delivered</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sold</fullName>
+        <default>false</default>
+        <label>Sold</label>
+    </standardValue>
+    <standardValue>
+        <fullName>1 Month Service</fullName>
+        <default>false</default>
+        <label>1 Month Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>3 Month Service</fullName>
+        <default>false</default>
+        <label>3 Month Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>6 Month Service</fullName>
+        <default>false</default>
+        <label>6 Month Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>1 Year Service</fullName>
+        <default>false</default>
+        <label>1 Year Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>5 Year Service</fullName>
+        <default>false</default>
+        <label>5 Year Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Extended Warranty</fullName>
+        <default>false</default>
+        <label>Extended Warranty</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Critical Recall</fullName>
+        <default>false</default>
+        <label>Critical Recall</label>
+    </standardValue>
+</StandardValueSet>

@@ -31,6 +31,10 @@
                 <behavior>Edit</behavior>
                 <field>SerialNumber</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warranty_Status__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -56,6 +60,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>UsageEndDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ParentId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -145,6 +153,9 @@
     </relatedLists>
     <relatedLists>
         <fields>Name</fields>
+        <fields>WarrantyTerm</fields>
+        <fields>PartsCovered</fields>
+        <fields>PartsCoveredEndDate</fields>
         <fields>StartDate</fields>
         <fields>EndDate</fields>
         <relatedList>AssetWarranty</relatedList>
