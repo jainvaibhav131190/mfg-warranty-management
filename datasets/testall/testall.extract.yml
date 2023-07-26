@@ -1,0 +1,314 @@
+extract:
+  Account:
+    fields:
+    - Description
+    - Fax
+    - Name
+    - AccountNumber
+    - Phone
+    - Rating
+    - Site
+    - AccountSource
+    - Type
+    - AnnualRevenue
+    - BillingCity
+    - BillingCountry
+    - BillingGeocodeAccuracy
+    - BillingLatitude
+    - BillingLongitude
+    - BillingState
+    - BillingStreet
+    - BillingPostalCode
+    - Jigsaw
+    - NumberOfEmployees
+    - Industry
+    - Ownership
+    - ParentId
+    - ShippingCity
+    - ShippingCountry
+    - ShippingGeocodeAccuracy
+    - ShippingLatitude
+    - ShippingLongitude
+    - ShippingState
+    - ShippingStreet
+    - ShippingPostalCode
+    - Sic
+    - SicDesc
+    - TickerSymbol
+    - Website
+  Contact:
+    fields:
+    - AccountId
+    - AssistantName
+    - AssistantPhone
+    - Birthdate
+    - Fax
+    - Phone
+    - Description
+    - Jigsaw
+    - Department
+    - DoNotCall
+    - Email
+    - EmailBouncedDate
+    - EmailBouncedReason
+    - HasOptedOutOfEmail
+    - HasOptedOutOfFax
+    - FirstName
+    - GenderIdentity
+    - HomePhone
+    - IndividualId
+    - LastName
+    - LeadSource
+    - MailingCity
+    - MailingCountry
+    - MailingGeocodeAccuracy
+    - MailingLatitude
+    - MailingLongitude
+    - MailingState
+    - MailingStreet
+    - MailingPostalCode
+    - MobilePhone
+    - OtherCity
+    - OtherCountry
+    - OtherGeocodeAccuracy
+    - OtherLatitude
+    - OtherLongitude
+    - OtherPhone
+    - OtherState
+    - OtherStreet
+    - OtherPostalCode
+    - Pronouns
+    - ReportsToId
+    - Salutation
+    - Title
+  Individual:
+    fields:
+    - LastName
+  Case:
+    fields:
+    - ContactId
+    - AssetId
+  Asset:
+    fields:
+    - ContactId
+    - City
+    - Country
+    - Description
+    - GeocodeAccuracy
+    - InstallDate
+    - IsCompetitorProduct
+    - IsInternal
+    - Latitude
+    - Longitude
+    - Name
+    - PostalCode
+    - Price
+    - PurchaseDate
+    - Quantity
+    - SerialNumber
+    - State
+    - Status
+    - Street
+    - UsageEndDate
+    - Warranty_Status__c
+  AssetMilestone:
+    fields:
+    - AssetId
+    - Name
+    - City
+    - Country
+    - Description
+    - ExpiredDate
+    - GeocodeAccuracy
+    - Latitude
+    - LocationId
+    - Longitude
+    - MilestoneDate
+    - MilestoneType
+    - PostalCode
+    - SourceSystemIdentifier
+    - SourceSystemName
+    - Stage
+    - StageComment
+    - State
+    - Street
+    - UsageType
+  Location:
+    fields:
+    - LocationType
+    - Name
+  AssetWarranty:
+    fields:
+    - AssetId
+    - EndDate
+    - ExchangeType
+    - Exclusions
+    - ExpensesCovered
+    - ExpensesCoveredEndDate
+    - LaborCovered
+    - LaborCoveredEndDate
+    - PartsCovered
+    - PartsCoveredEndDate
+    - Pricebook2Id
+    - StartDate
+    - IsTransferable
+    - WarrantyTermId
+    - WarrantyType
+  Pricebook2:
+    fields:
+    - Description
+    - IsActive
+    - Name
+  WarrantyTerm:
+    fields:
+    - Code
+    - Description
+    - EffectiveStartDate
+    - ExchangeType
+    - Exclusions
+    - ExpensesCovered
+    - ExpensesCoveredDuration
+    - ExpensesCoveredUnitOfTime
+    - IsActive
+    - IsTransferable
+    - LaborCovered
+    - LaborCoveredDuration
+    - LaborCoveredUnitOfTime
+    - PartsCovered
+    - PartsCoveredDuration
+    - PartsCoveredUnitOfTime
+    - UsageCovered
+    - WarrantyDuration
+    - WarrantyTermName
+    - WarrantyType
+    - WarrantyUnitOfTime
+  ClaimCoverage:
+    fields:
+    - AssetWarrantyId
+    - CoverageType
+    - Description
+    - Name
+    - Status
+  WorkOrder:
+    fields:
+    - AssetId
+  Claim:
+    fields:
+    - AccountId
+    - RelatedClaimId
+    - Name
+    - ClaimReason
+    - ClaimReasonType
+    - ClaimType
+    - FinalizedDate
+    - FnolChannel
+    - Severity
+    - Status
+    - Summary
+  ClaimCoveragePaymentDetail:
+    fields:
+    - AdjustedAmount
+    - ChargeType
+    - ClaimCoverageId
+    - ClaimedAmount
+    - ChargeTypeCodeId
+    - Comment
+    - Description
+    - Name
+    - PriceBookEntryId
+    - ReplacementPartId
+    - ProductRelatedMaterialId
+    - Quantity
+    - Status
+  CodeSet:
+    fields:
+    - Code
+    - CodeDescription
+    - CodeSetKey
+    - CodeSetType
+    - EndDate
+    - IsActive
+    - IsCustomCode
+    - IsPrimary
+    - Name
+    - SourceSystem
+    - StartDate
+    - SystemVersion
+  PricebookEntry:
+    fields:
+    - UnitPrice
+  Product2:
+    fields:
+    - Description
+    - DisplayUrl
+    - ExternalId
+    - Family
+    - IsActive
+    - Name
+    - ProductCode
+    - QuantityUnitOfMeasure
+    - StockKeepingUnit
+  ProductRelatedMaterial:
+    fields:
+    - Name
+  ClaimItem:
+    fields:
+    - AssetId
+    - AssetUsageUnitOfMeasure
+    - AssetUsageValue
+    - Category
+    - ClaimId
+    - ClaimParticipantId
+    - CurrentCity
+    - CurrentCountry
+    - CurrentGeocodeAccuracy
+    - CurrentLatitude
+    - CurrentLongitude
+    - CurrentPostalCode
+    - CurrentState
+    - CurrentStreet
+    - Description
+    - FaultDate
+    - Name
+    - RepairDate
+  ClaimParticipant:
+    fields:
+    - Roles
+  WarrantyTermCoverage:
+    fields:
+    - ProductPartId
+  ProductFaultCode:
+    fields:
+    - FaultCodeId
+    - ProductFamily
+    - ProductId
+  ProductLaborCode:
+    fields:
+    - LaborCodeId
+    - EstimatedEffort
+    - ProductFamily
+    - ProductId
+  ProductWarrantyTerm:
+    fields:
+    - CoveredProductFamily
+    - CoveredProductId
+    - WarrantyTermId
+  UnitOfMeasure:
+    fields:
+    - Description
+    - Name
+    - Type
+    - UnitCode
+  RecordAlert:
+    fields:
+    - IsActive
+    - Description
+    - EffectiveDate
+    - ParentId
+    - RecordAlertCategoryId
+    - Severity
+    - SnoozeUntilDate
+    - SourceSystemIdentifier
+    - Subject
+    - ValidUntilDate
+    - WhatId
