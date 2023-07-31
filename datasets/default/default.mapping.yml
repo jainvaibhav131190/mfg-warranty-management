@@ -64,16 +64,25 @@ Insert Product2:
   - QuantityUnitOfMeasure
   - StockKeepingUnit
 
+Insert UnitOfMeasure:
+  sf_object: UnitOfMeasure
+  table: UnitOfMeasure
+  fields:
+  - Description
+  - Name
+  - Type
+  - UnitCode
+
 Insert Claim:
   sf_object: Claim
   table: Claim
   fields:
+  - Name
   - ClaimReason
   - ClaimReasonType
   - ClaimType
   - FinalizedDate
   - FnolChannel
-  - Name
   - Severity
   - Status
   - Summary
@@ -161,6 +170,7 @@ Insert WarrantyTerm:
   sf_object: WarrantyTerm
   table: WarrantyTerm
   fields:
+  - IsActive
   - Code
   - Description
   - EffectiveStartDate
@@ -169,34 +179,37 @@ Insert WarrantyTerm:
   - ExpensesCovered
   - ExpensesCoveredDuration
   - ExpensesCoveredUnitOfTime
-  - IsActive
-  - IsTransferable
   - LaborCovered
   - LaborCoveredDuration
   - LaborCoveredUnitOfTime
   - PartsCovered
   - PartsCoveredDuration
   - PartsCoveredUnitOfTime
+  - IsTransferable
   - UsageCovered
   - WarrantyDuration
   - WarrantyTermName
   - WarrantyType
   - WarrantyUnitOfTime
+  lookups:
+    UsageCoveredUomId:
+      table: UnitOfMeasure
+      key_field: UsageCoveredUomId
 
 Insert Asset:
   sf_object: Asset
   table: Asset
   fields:
+  - Name
   - City
+  - IsCompetitorProduct
   - Country
   - Description
   - GeocodeAccuracy
   - InstallDate
-  - IsCompetitorProduct
   - IsInternal
   - Latitude
   - Longitude
-  - Name
   - PostalCode
   - Price
   - PurchaseDate
@@ -206,6 +219,7 @@ Insert Asset:
   - Status
   - Street
   - UsageEndDate
+  - Warranty_Status__c
   lookups:
     AccountId:
       table: Account
@@ -261,12 +275,12 @@ Insert AssetWarranty:
   - Exclusions
   - ExpensesCovered
   - ExpensesCoveredEndDate
-  - IsTransferable
   - LaborCovered
   - LaborCoveredEndDate
   - PartsCovered
   - PartsCoveredEndDate
   - StartDate
+  - IsTransferable
   - WarrantyType
   lookups:
     AssetId:
@@ -280,26 +294,53 @@ Insert Case:
   sf_object: Case
   table: Case
   fields:
-  - Comments
-  - Description
-  - IsEscalated
   - Origin
-  - Priority
   - Reason
-  - Status
-  - Subject
+  - Type
   - SuppliedCompany
+  - Description
   - SuppliedEmail
+  - IsEscalated
+  - Comments
   - SuppliedName
   - SuppliedPhone
-  - Type
+  - Priority
+  - Status
+  - Subject
   lookups:
     AccountId:
       table: Account
       key_field: AccountId
+    AssetId:
+      table: Asset
+      key_field: AssetId
     ContactId:
       table: Contact
       key_field: ContactId
+
+Insert AssetMilestone:
+  sf_object: AssetMilestone
+  table: AssetMilestone
+  fields:
+  - Name
+  - City
+  - Country
+  - Description
+  - ExpiredDate
+  - GeocodeAccuracy
+  - Latitude
+  - Longitude
+  - MilestoneDate
+  - MilestoneType
+  - PostalCode
+  - SourceSystemIdentifier
+  - SourceSystemName
+  - Stage
+  - StageComment
+  - State
+  - Street
+  - UsageType
+  lookups:
     AssetId:
       table: Asset
       key_field: AssetId
@@ -418,9 +459,9 @@ Insert RecordAlert:
   sf_object: RecordAlert
   table: RecordAlert
   fields:
+  - IsActive
   - Description
   - EffectiveDate
-  - IsActive
   - Severity
   - SnoozeUntilDate
   - SourceSystemIdentifier
