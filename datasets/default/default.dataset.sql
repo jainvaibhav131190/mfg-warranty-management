@@ -199,7 +199,7 @@ CREATE TABLE "ClaimCoverage" (
 );
 INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','1','4','1','4','3');
 INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','2','2','2','3','6');
-INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','7','','2','1','2');
+INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','7','10','2','1','2');
 INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','4','10','1','2','1');
 
 CREATE TABLE "ClaimCoveragePaymentDetail" (
