@@ -222,7 +222,7 @@ INSERT INTO "ClaimCoveragePaymentDetail" VALUES(2,'0.0','Replaced Part','150.0',
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(3,'70.0','Replaced Part','100.0','','','CPN 00186 Laptop Battery Replacement','1','Approved','1','4','10');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(4,'0.0','Replaced Part','40.0','','','CPN 00195 Replace Value Part','1','None','','1','4');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(5,'40.0','Replaced Part','350.0','','','CPN 00198 Replace Cylinder Part','5','Approved','3','2','');
-INSERT INTO "ClaimCoveragePaymentDetail" VALUES(6,'40.0','Expense','100.0','','','CPN 00197 Technician Visit','','Approved','2','2','');
+INSERT INTO "ClaimCoveragePaymentDetail" VALUES(6,'40.0','Expense','100.0','','','CPN 00197 Technician Visit','','Approved','2','2','10');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(7,'0.0','Labor','40.0','','','CPN 00194 Replace Valve labor charge','1','None','5','1','');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(8,'40.0','Labor','100.0','','','CPN 00196 Replace Cylinder Labor','5','Approved','7','2','');
 
