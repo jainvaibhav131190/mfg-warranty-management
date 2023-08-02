@@ -138,6 +138,22 @@ Insert Contact:
       table: Contact
       key_field: ReportsToId
       after: Insert Contact
+  
+Insert ClaimParticipant:
+  sf_object: ClaimParticipant
+  table: ClaimParticipant
+  fields:
+  - Roles
+  lookups:
+    ParticipantAccountId:
+      table: Account
+      key_field: ParticipantAccountId
+    ClaimId:
+      table: Claim
+      key_field: ClaimId
+    ParticipantContactId:
+      table: Contact
+      key_field: ParticipantContactId
 
 Insert ProductFaultCode:
   sf_object: ProductFaultCode
@@ -396,6 +412,9 @@ Insert ClaimCoverage:
     FaultCodeId:
       table: CodeSet
       key_field: FaultCodeId
+    ClaimParticipantId:
+      table: ClaimParticipant
+      key_field: ClaimParticipantId
 
 Insert WorkOrder:
   sf_object: WorkOrder

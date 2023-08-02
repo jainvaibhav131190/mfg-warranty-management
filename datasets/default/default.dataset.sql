@@ -34,7 +34,7 @@ CREATE TABLE "Account" (
 	PRIMARY KEY (id)
 );
 INSERT INTO "Account" VALUES(1,'','','','New York','USA','','','','31349','NY','10 Main Rd.','','(212) 555-5555','Manufacturing','','Acme Partners','','','(212) 555-5555','New York','USA','','','','31349','NY','10 Main Rd.','','Customer','http://www.acmepartner.com');
-INSERT INTO "Account" VALUES(4,'','','','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','GBM is the worldwide leader in technology news and information on the Web and the producer of the longest-running and farthest-reaching television shows about technology. GBM''s network of sites combines breakthrough interactive technology with engaging content and design and is consistently ranked as the Internet''s leading content network in terms of both audience size and revenue, serving millions of users each day. The company''s television programming is broadcast by the USA Network and the Sci-Fi Channel to more than 70 million households and is syndicated to broadcast television stations in the nation''s top 120 markets, including the top 10 markets.','','Media','','Global Media','14668','','(905) 555-1212','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','Prospect','');
+INSERT INTO "Account" VALUES(4,'','','','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','GBM is the worldwide leader in technology news and information on the Web and the producer of the longest-running and farthest-reaching television shows about technology. GBM''s network of sites combines breakthrough interactive technology with engaging content and design and is consistently ranked as the Internet''s leading content network in terms of both audience size and revenue, serving millions of users each day. The company''s television programming is broadcast by the USA Network and the Sci-Fi Channel to more than 70 million households and is syndicated to broadcast television stations in the nation''s top 120 markets, including the top 10 markets.','','Media','','Global Media X','14668','','(905) 555-1227','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','Prospect','');
 
 CREATE TABLE "Asset" (
 	id INTEGER NOT NULL, 
@@ -65,7 +65,7 @@ CREATE TABLE "Asset" (
 	"Product2Id" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Asset" VALUES(1,'Marine Generator - MGX750XYMFG','','False','','','','2023-04-18','False','','','','','2023-04-18','1.0','MGX750XYMFG','','Installed','','','','1','','','2','3');
+INSERT INTO "Asset" VALUES(1,'Marine Generator - MGX750XYMFG','','False','','','','2023-04-18','False','','','','','2023-04-18','1.0','MGX750XYMFG','','Installed','','','Active','1','','','2','3');
 INSERT INTO "Asset" VALUES(2,'Acme Compressor - MGX751XYMFG','','False','','','','2023-04-20','False','','','','3250.0','2023-04-20','1.0','MGX751XYMFG','','Installed','','','Active','1','','','2','8');
 INSERT INTO "Asset" VALUES(3,'Expo Laptop 002 - GREY','','False','','','','','False','','','','1750.0','2022-07-18','1.0','EXPO6781','','Purchased','','','Active','4','','','7','9');
 INSERT INTO "Asset" VALUES(4,'Magna Alternator - ALTX001','','False','','','','2023-07-21','False','','','','3750.0','2023-07-10','1.0','ALX750XYMFG','','Installed','','','Active','4','','','6','11');
@@ -154,9 +154,6 @@ CREATE TABLE "Case" (
 	"ContactId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Case" VALUES(1,'Phone','Instructions not clear','','','','','False','','','','High','New','Sample Case 2: The widgets we received are the wrong size.','1','','1');
-INSERT INTO "Case" VALUES(2,'Phone','','','','','','False','','','','Low','On Hold','Sample Case 3: Cannot track our order.','1','','1');
-INSERT INTO "Case" VALUES(3,'Phone','','','','','','False','','','','High','Escalated','Sample Case: Our Widgets have not been delivered.','4','','7');
 INSERT INTO "Case" VALUES(4,'Phone','','Question','','','','False','','','','Medium','New','How do I proceed with the installation?','4','4','6');
 INSERT INTO "Case" VALUES(5,'Phone','Instructions not clear','Question','','','','False','','','','Medium','New','When is our next service due?','1','2','3');
 INSERT INTO "Case" VALUES(6,'Email','','Question','','','','False','','','','Medium','New','When can we have the anti virus software installed on the laptop?','4','3','7');
@@ -195,12 +192,13 @@ CREATE TABLE "ClaimCoverage" (
 	"ClaimId" VARCHAR(255), 
 	"ClaimItemId" VARCHAR(255), 
 	"FaultCodeId" VARCHAR(255), 
+	"ClaimParticipantId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','1','4','1','4','3');
-INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','2','2','2','3','6');
-INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','7','10','2','1','2');
-INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','4','10','1','2','1');
+INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','5','4','3','4','5','');
+INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','8','2','4','3','6','');
+INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','7','10','2','1','2','');
+INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','4','10','1','2','1','1');
 
 CREATE TABLE "ClaimCoveragePaymentDetail" (
 	id INTEGER NOT NULL, 
@@ -220,7 +218,7 @@ CREATE TABLE "ClaimCoveragePaymentDetail" (
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(1,'20.0','Labor','50.0','','','CPN 00T01 Tech Charges','1','Approved','1','4','10');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(2,'0.0','Replaced Part','150.0','','','CPN 00201 - Battery Replacement','1','Rejected','','3','10');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(3,'70.0','Replaced Part','100.0','','','CPN 00186 Laptop Battery Replacement','1','Approved','1','4','10');
-INSERT INTO "ClaimCoveragePaymentDetail" VALUES(4,'0.0','Replaced Part','40.0','','','CPN 00195 Replace Value Part','1','None','','1','4');
+INSERT INTO "ClaimCoveragePaymentDetail" VALUES(4,'0.0','Replaced Part','40.0','','','CPN 00195 Replace Valve Part','1','None','','1','4');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(5,'40.0','Replaced Part','350.0','','','CPN 00198 Replace Cylinder Part','5','Approved','3','2','');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(6,'40.0','Expense','100.0','','','CPN 00197 Technician Visit','','Approved','2','2','10');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(7,'0.0','Labor','40.0','','','CPN 00194 Replace Valve labor charge','1','None','5','1','');
@@ -251,6 +249,16 @@ INSERT INTO "ClaimItem" VALUES(1,'','','','','','','','','','','','Battery needs
 INSERT INTO "ClaimItem" VALUES(2,'','','','','','','','','','','','','2023-02-20T20:00:00.000+0000','CLI-000207','2023-03-01T20:00:00.000+0000','3','1');
 INSERT INTO "ClaimItem" VALUES(3,'Hours','750','','','','','','','','','','','2023-04-18T19:00:00.000+0000','CLI-000214','2023-04-20T19:00:00.000+0000','1','4');
 INSERT INTO "ClaimItem" VALUES(4,'Hours','750','','','','','','','','','','','2023-05-25T19:00:00.000+0000','CLI-000210','2023-05-28T19:00:00.000+0000','2','3');
+
+CREATE TABLE "ClaimParticipant" (
+	id INTEGER NOT NULL, 
+	"Roles" VARCHAR(255), 
+	"ClaimId" VARCHAR(255), 
+	"ParticipantAccountId" VARCHAR(255), 
+	"ParticipantContactId" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "ClaimParticipant" VALUES(1,'Claimant','1','4','7');
 
 CREATE TABLE "CodeSet" (
 	id INTEGER NOT NULL, 
@@ -319,11 +327,11 @@ CREATE TABLE "Contact" (
 	"ReportsToId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Contact" VALUES(1,'','','','','','edy@yahoo.com','','','(212) 555-5555','Edward','','','Stamos','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','Mr.','Manager','1','');
-INSERT INTO "Contact" VALUES(2,'','','','','','howdy@yahoo.com','','','(212) 555-5555','Howard','','','Jones','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','Mr.','Buyer','1','');
-INSERT INTO "Contact" VALUES(3,'','','','','','leny@yahoo.com','','','(212) 555-5555','Leanne','','','Tomlin','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5555','Ms.','VP Customer Support','1','');
-INSERT INTO "Contact" VALUES(6,'','','','','Carole White is looking at moving forward with our products and will act as the champion for us.','info@salesforce.com','','','','Carole','','','White','Employee Referral','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','','','','','','','','','','(415) 555-1212','','VP Sales','4','');
-INSERT INTO "Contact" VALUES(7,'','','','','','info@salesforce.com','','','(555) 555-1212','Jon','','','Amos','','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','','','','','','','','','','(905) 555-1212','','Sales Manager','4','');
+INSERT INTO "Contact" VALUES(1,'','','','','','estan@acme.org','','','(212) 555-5566','Edward','','','Stan','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5566','Mr.','Manager','1','');
+INSERT INTO "Contact" VALUES(2,'','','','','','hjane@acme.org','','','(212) 555-5566','Howard','','','Jane','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5566','Mr.','Buyer','1','');
+INSERT INTO "Contact" VALUES(3,'','','','','','ltom@acme.org','','','(212) 555-5566','Leanne','','','Tom','','New York','USA','','','','31349','NY','10 Main Rd.','','','','','','','','','','','(212) 555-5566','Ms.','VP Customer Support','1','');
+INSERT INTO "Contact" VALUES(6,'','','','','Christina White is looking at moving forward with our products and will act as the champion for us.','cwhite@gm.org','','','','Christina','','','White','Employee Referral','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','','','','','','','','','','(415) 555-1227','','VP Sales','4','');
+INSERT INTO "Contact" VALUES(7,'','','','','','jcareey@gm.org','','','(555) 555-1227','Jon','','','Carrey','','Toronto','Canada','','','','L4B 1Y3','Ontario','150 Chestnut Street','','','','','','','','','','','(905) 555-1227','','Sales Manager','4','');
 
 CREATE TABLE "Product2" (
 	id INTEGER NOT NULL, 
@@ -469,13 +477,13 @@ CREATE TABLE "WorkOrder" (
 	PRIMARY KEY (id)
 );
 INSERT INTO "WorkOrder" VALUES(1,'','','','','Hours','','','','','','Medium','','','New','','Setup of the Alternator','','4','4','4','6');
-INSERT INTO "WorkOrder" VALUES(2,'','','','','Hours','','','','','','High','','','New','','Battery replacement','','4','3','9','7');
+INSERT INTO "WorkOrder" VALUES(2,'','','','','Hours','','','','','','High','','','New','','Battery replacement','','4','3','7','7');
 INSERT INTO "WorkOrder" VALUES(3,'','','','','Hours','','','','','','Medium','','','New','','1 month asset service','','4','4','','2');
 INSERT INTO "WorkOrder" VALUES(4,'','','','','Hours','','','','','','High','','','New','','Install the anti virus software','','4','3','6','7');
-INSERT INTO "WorkOrder" VALUES(5,'','','','','Hours','','','','','','Medium','','','New','','Address the noise problem','','4','4','8','6');
+INSERT INTO "WorkOrder" VALUES(5,'','','','','Hours','','','','','','Medium','','','New','','Address the noise problem','','4','4','10','6');
 INSERT INTO "WorkOrder" VALUES(6,'','','','','Hours','','','','','','Low','','','New','','Quarterly Service - Sep 2023','','1','1','','');
 INSERT INTO "WorkOrder" VALUES(7,'','','','','Hours','','','','','','Low','','','New','','Quarterly Service - Dec 2023','','1','1','','');
-INSERT INTO "WorkOrder" VALUES(8,'','','','','Hours','','','','','','Low','','','New','','Quarterly Service - June 2023','','1','1','10','');
+INSERT INTO "WorkOrder" VALUES(8,'','','','','Hours','','','','','','Low','','','New','','Quarterly Service - June 2023','','1','1','8','');
 INSERT INTO "WorkOrder" VALUES(9,'','','','','Hours','','','','','','High','','','New','','6 Month Service - Oct 2023','','1','2','','');
 INSERT INTO "WorkOrder" VALUES(10,'','','','','Hours','','','','','','Low','','','New','','3 Month Service - July 2023','','1','2','','');
 INSERT INTO "WorkOrder" VALUES(11,'','','','','Hours','','','','','','High','','','New','','1 Year Service - Mar 2024','','1','2','','');
