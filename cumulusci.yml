@@ -28,19 +28,11 @@ tasks:
         options:
             required_org_code_coverage_percent: 75
 
-    # Extracting Omniscript JSON
-    vlocity_pack_export_omnistudio:
-        class_path: cumulusci.tasks.vlocity.vlocity.VlocityRetrieveTask
-        options:
-            job_file: force-app/main/default/omnistudio/buildDefinitionOmnistudio.yaml
-        ui_options:
-            name: Extract Omniscripts, Data Raptors and Integration Procedures
-
     enable_knowledge_for_users:
         description: Enable Knowledge flag for Users
         class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
         options:
-            path: force-app/main/default/apex/KnowledgeUserPerm.apex
+            path: anonymous_apex/KnowledgeUserPerm.apex
         ui_options:
             name: Enable Knowledge flag for Users
 
@@ -48,34 +40,20 @@ flows:
     dependencies:
         steps:
             3:
-                task: org_settings
-                options:
-                    definition_file: orgs/dev.json
-                ui_options:
-                    name: Enabling Org Settings
-            4:
                 task: deploy_omni_studio_site_settings
                 ui_options:
                     name: Deploy Remote Site Settings for Omnistudio
-            5:
+            4:
                 task: enable_knowledge_for_users
-                options:
-                    path: force-app/main/default/apex/KnowledgeUserPerm.apex
                 ui_options:
                     name: Enable Knowledge flag for Users
-            6:
+            5:
                 task: assign_permission_sets
                 options:
                     api_names: WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
                 ui_options:
                     name: Adding Permission Set to Admin User
-            # 7:
-            #     task: util_sleep
-            #     options:
-            #         seconds: 600
-            #     ui_options:
-            #         name: Wait for Omnistudio components to be available
-            8:
+            6:
                 task: deploy
                 options:
                     path: force-app/main/sfdx_metadata
@@ -96,8 +74,6 @@ flows:
                     name: Deploy Remote Site Settings for Omnistudio
             3:
                 task: enable_knowledge_for_users
-                options:
-                    path: force-app/main/default/apex/KnowledgeUserPerm.apex
                 ui_options:
                     name: Enable Knowledge flag for Users
             4:
