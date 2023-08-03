@@ -26,6 +26,9 @@
     "IndustriesSettings": {
       "enableTimelinePref": true
     },
+    "MfgServiceConsoleSettings": {
+      "enableMfgServiceConsole": true
+    },
     "KnowledgeSettings": {
       "enableKnowledge": true,
       "enableKnowledgeArticleTextHighlights": true,

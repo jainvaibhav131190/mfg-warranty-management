@@ -50,7 +50,7 @@ flows:
             5:
                 task: assign_permission_sets
                 options:
-                    api_names: WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
+                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
                 ui_options:
                     name: Adding Permission Set to Admin User
             6:
@@ -79,7 +79,7 @@ flows:
             4:
                 task: assign_permission_sets
                 options:
-                    api_names: WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
+                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
                 ui_options:
                     name: Adding Permission Set to Admin User
             5:
