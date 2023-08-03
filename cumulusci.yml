@@ -50,7 +50,7 @@ flows:
             5:
                 task: assign_permission_sets
                 options:
-                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl,IndustriesServiceExcellence
+                    api_names: WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
                 ui_options:
                     name: Adding Permission Set to Admin User
             6:
@@ -79,7 +79,7 @@ flows:
             4:
                 task: assign_permission_sets
                 options:
-                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl,IndustriesServiceExcellence
+                    api_names: WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
                 ui_options:
                     name: Adding Permission Set to Admin User
             5:
@@ -122,9 +122,6 @@ plans:
           - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
             message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator." 
-          - when: "'IndustriesServiceExcellencePsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need IndustriesServiceExcellencePsl license in your Org to use this feature. Contact your Administrator." 
         steps:
             1:
                 flow: mfg_wm_install
@@ -146,9 +143,6 @@ plans:
           - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
             action: error
             message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator." 
-          - when: "'IndustriesServiceExcellencePsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need IndustriesServiceExcellencePsl license in your Org to use this feature. Contact your Administrator." 
         steps:
             1:
                 flow: mfg_wm_data

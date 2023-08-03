@@ -39,15 +39,6 @@
       "enableCreateEditOnArticlesTab": true,
       "enableExternalMediaContent": true
     },
-    "MfgServiceConsoleSettings": {
-      "enableMfgServiceConsole": true
-    },
-    "industriesManufacturingSettings":{
-      "enableIndManufacturing": true,
-      "enableIndustriesMfgAccountForecast": true,
-      "enableIndustriesMfgAdvForecast": true,
-      "enableIndustriesMfgTargets": true
-    },
     "PathAssistantSettings": {
       "pathAssistantEnabled": true
     }
