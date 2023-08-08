@@ -68,7 +68,6 @@ Insert UnitOfMeasure:
   sf_object: UnitOfMeasure
   table: UnitOfMeasure
   fields:
-  - Description
   - Name
   - Type
   - UnitCode
@@ -235,7 +234,6 @@ Insert Asset:
   - Status
   - Street
   - UsageEndDate
-  - Warranty_Status__c
   lookups:
     AccountId:
       table: Account
@@ -339,22 +337,9 @@ Insert AssetMilestone:
   table: AssetMilestone
   fields:
   - Name
-  - City
-  - Country
-  - Description
-  - ExpiredDate
-  - GeocodeAccuracy
-  - Latitude
-  - Longitude
   - MilestoneDate
   - MilestoneType
-  - PostalCode
-  - SourceSystemIdentifier
-  - SourceSystemName
   - Stage
-  - StageComment
-  - State
-  - Street
   - UsageType
   lookups:
     AssetId:
@@ -396,6 +381,7 @@ Insert ClaimCoverage:
   - Description
   - Name
   - Status
+  - InternalReserveMode
   lookups:
     AssetWarrantyId:
       table: AssetWarranty

@@ -29,17 +29,9 @@
     </workspaceConfig>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>Claim_Record_Page4</content>
+        <content>Claim_Record_Page_DF</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Claim</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Asset_Record_Page3</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Asset</pageOrSobjectType>
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>

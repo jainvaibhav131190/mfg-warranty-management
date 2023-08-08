@@ -57,7 +57,6 @@ CREATE TABLE "Asset" (
 	"Status" VARCHAR(255), 
 	"Street" VARCHAR(255), 
 	"UsageEndDate" VARCHAR(255), 
-	"Warranty_Status__c" VARCHAR(255), 
 	"AccountId" VARCHAR(255), 
 	"AssetProvidedById" VARCHAR(255), 
 	"AssetServicedById" VARCHAR(255), 
@@ -65,47 +64,34 @@ CREATE TABLE "Asset" (
 	"Product2Id" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Asset" VALUES(1,'Marine Generator - MGX750XYMFG','','False','','','','2023-04-18','False','','','','','2023-04-18','1.0','MGX750XYMFG','','Installed','','','Active','1','','','2','3');
-INSERT INTO "Asset" VALUES(2,'Acme Compressor - MGX751XYMFG','','False','','','','2023-04-20','False','','','','3250.0','2023-04-20','1.0','MGX751XYMFG','','Installed','','','Active','1','','','2','8');
-INSERT INTO "Asset" VALUES(3,'Expo Laptop 002 - GREY','','False','','','','','False','','','','1750.0','2022-07-18','1.0','EXPO6781','','Purchased','','','Active','4','','','7','9');
-INSERT INTO "Asset" VALUES(4,'Magna Alternator - ALTX001','','False','','','','2023-07-21','False','','','','3750.0','2023-07-10','1.0','ALX750XYMFG','','Installed','','','Active','4','','','6','11');
+INSERT INTO "Asset" VALUES(1,'Marine Generator - MGX750XYMFG','','False','','','','2023-04-18','False','','','','','2023-04-18','1.0','MGX750XYMFG','','Installed','','','1','','','2','3');
+INSERT INTO "Asset" VALUES(2,'Acme Compressor - MGX751XYMFG','','False','','','','2023-04-20','False','','','','3250.0','2023-04-20','1.0','MGX751XYMFG','','Installed','','','1','','','2','8');
+INSERT INTO "Asset" VALUES(3,'Expo Laptop 002 - GREY','','False','','','','','False','','','','1750.0','2022-07-18','1.0','EXPO6781','','Purchased','','','4','','','7','9');
+INSERT INTO "Asset" VALUES(4,'Magna Alternator - ALTX001','','False','','','','2023-07-21','False','','','','3750.0','2023-07-10','1.0','ALX750XYMFG','','Installed','','','4','','','6','11');
 
 CREATE TABLE "AssetMilestone" (
 	id INTEGER NOT NULL, 
 	"Name" VARCHAR(255), 
-	"City" VARCHAR(255), 
-	"Country" VARCHAR(255), 
-	"Description" VARCHAR(255), 
-	"ExpiredDate" VARCHAR(255), 
-	"GeocodeAccuracy" VARCHAR(255), 
-	"Latitude" VARCHAR(255), 
-	"Longitude" VARCHAR(255), 
 	"MilestoneDate" VARCHAR(255), 
 	"MilestoneType" VARCHAR(255), 
-	"PostalCode" VARCHAR(255), 
-	"SourceSystemIdentifier" VARCHAR(255), 
-	"SourceSystemName" VARCHAR(255), 
 	"Stage" VARCHAR(255), 
-	"StageComment" VARCHAR(255), 
-	"State" VARCHAR(255), 
-	"Street" VARCHAR(255), 
 	"UsageType" VARCHAR(255), 
 	"AssetId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "AssetMilestone" VALUES(1,'Installed','','','','','','','','2023-07-21','Delivered','','','','Active','','','','Manufacturing','4');
-INSERT INTO "AssetMilestone" VALUES(2,'6 Month Service Completed','','','','','','','','2023-01-10','6 Month Service','','','','Active','','','','Manufacturing','3');
-INSERT INTO "AssetMilestone" VALUES(3,'Order Received','','','','','','','','2023-07-06','Order Received','','','','Active','','','','Manufacturing','4');
-INSERT INTO "AssetMilestone" VALUES(4,'Delivered to Customer','','','','','','','','2022-07-18','Delivered','','','','Active','','','','Manufacturing','3');
-INSERT INTO "AssetMilestone" VALUES(5,'3 Month Service Concluded','','','','','','','','2022-10-24','3 Month Service','','','','Active','','','','Manufacturing','3');
-INSERT INTO "AssetMilestone" VALUES(6,'1 Month Service','','','','','','','','2022-08-18','1 Month Service','','','','Active','','','','Manufacturing','3');
-INSERT INTO "AssetMilestone" VALUES(7,'Order Received','','','','','','','','2022-07-11','Order Received','','','','Active','','','','Manufacturing','3');
-INSERT INTO "AssetMilestone" VALUES(8,'1 Month Service','','','','','','','','2023-05-31','1 Month Service','','','','Active','','','','Manufacturing','2');
-INSERT INTO "AssetMilestone" VALUES(9,'Order Received','','','','','','','','2023-04-14','Order Received','','','','Active','','','','Manufacturing','2');
-INSERT INTO "AssetMilestone" VALUES(10,'Order Received','','','','','','','','2023-04-14','Order Received','','','','Active','','','','Manufacturing','1');
-INSERT INTO "AssetMilestone" VALUES(11,'Installed','','','','','','','','2023-04-18','Delivered','','','','Active','','','','Manufacturing','1');
-INSERT INTO "AssetMilestone" VALUES(12,'Installed','','','','','','','','2023-04-17','Delivered','','','','Active','','','','Manufacturing','2');
-INSERT INTO "AssetMilestone" VALUES(13,'1 Month Service','','','','','','','','2023-05-31','1 Month Service','','','','Active','','','','Manufacturing','1');
+INSERT INTO "AssetMilestone" VALUES(1,'Installed','2023-07-21','Delivered','Active','Manufacturing','4');
+INSERT INTO "AssetMilestone" VALUES(2,'6 Month Service Completed','2023-01-10','6 Month Service','Active','Manufacturing','3');
+INSERT INTO "AssetMilestone" VALUES(3,'Order Received','2023-07-06','Order Received','Active','Manufacturing','4');
+INSERT INTO "AssetMilestone" VALUES(4,'Delivered to Customer','2022-07-18','Delivered','Active','Manufacturing','3');
+INSERT INTO "AssetMilestone" VALUES(5,'3 Month Service Concluded','2022-10-24','3 Month Service','Active','Manufacturing','3');
+INSERT INTO "AssetMilestone" VALUES(6,'1 Month Service','2022-08-18','1 Month Service','Active','Manufacturing','3');
+INSERT INTO "AssetMilestone" VALUES(7,'Order Received','2022-07-11','Order Received','Active','Manufacturing','3');
+INSERT INTO "AssetMilestone" VALUES(8,'1 Month Service','2023-05-31','1 Month Service','Active','Manufacturing','2');
+INSERT INTO "AssetMilestone" VALUES(9,'Order Received','2023-04-14','Order Received','Active','Manufacturing','2');
+INSERT INTO "AssetMilestone" VALUES(10,'Order Received','2023-04-14','Order Received','Active','Manufacturing','1');
+INSERT INTO "AssetMilestone" VALUES(11,'Installed','2023-04-18','Delivered','Active','Manufacturing','1');
+INSERT INTO "AssetMilestone" VALUES(12,'Installed','2023-04-17','Delivered','Active','Manufacturing','2');
+INSERT INTO "AssetMilestone" VALUES(13,'1 Month Service','2023-05-31','1 Month Service','Active','Manufacturing','1');
 
 CREATE TABLE "AssetWarranty" (
 	id INTEGER NOT NULL, 
@@ -187,6 +173,7 @@ CREATE TABLE "ClaimCoverage" (
 	"Description" VARCHAR(255), 
 	"Name" VARCHAR(255), 
 	"Status" VARCHAR(255), 
+	"InternalReserveMode" VARCHAR(255), 
 	"AssetWarrantyId" VARCHAR(255), 
 	"CausalPartId" VARCHAR(255), 
 	"ClaimId" VARCHAR(255), 
@@ -195,10 +182,10 @@ CREATE TABLE "ClaimCoverage" (
 	"ClaimParticipantId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','5','4','3','4','5','');
-INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','8','2','4','3','6','');
-INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','7','10','2','1','2','');
-INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','4','10','1','2','1','1');
+INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','CoverageReserve','5','4','3','4','5','');
+INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','CoverageReserve','8','2','4','3','6','');
+INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','CoverageReserve','7','10','2','1','2','');
+INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','CoverageReserve','4','10','1','2','1','1');
 
 CREATE TABLE "ClaimCoveragePaymentDetail" (
 	id INTEGER NOT NULL, 
@@ -389,13 +376,12 @@ INSERT INTO "ProductWarrantyTerm" VALUES(1,'','3','10');
 
 CREATE TABLE "UnitOfMeasure" (
 	id INTEGER NOT NULL, 
-	"Description" VARCHAR(255), 
 	"Name" VARCHAR(255), 
 	"Type" VARCHAR(255), 
 	"UnitCode" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "UnitOfMeasure" VALUES(1,'','Hours','Time','Hour');
+INSERT INTO "UnitOfMeasure" VALUES(1,'Hours','Time','Hour');
 
 CREATE TABLE "WarrantyTerm" (
 	id INTEGER NOT NULL, 
