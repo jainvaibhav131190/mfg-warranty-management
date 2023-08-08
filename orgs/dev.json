@@ -19,37 +19,6 @@
     },
     "languageSettings": {
       "enableTranslationWorkbench": true
-    },
-    "WarrantyLifecycleMgmtSettings": {
-      "enableWarrantyLCMgmt": true
-    },
-    "IndustriesSettings": {
-      "enableTimelinePref": true
-    },
-    "KnowledgeSettings": {
-      "enableKnowledge": true,
-      "enableKnowledgeArticleTextHighlights": true,
-      "enableKnowledgeKeywordAutoComplete": true,
-      "enableKnowledgeTitleAutoComplete": true,
-      "enableLightningKnowledge": true,
-      "votingEnabled": true,
-      "cases": {
-        "enableCaseDataCategoryMapping": true
-      },
-      "enableCreateEditOnArticlesTab": true,
-      "enableExternalMediaContent": true
-    },
-    "MfgServiceConsoleSettings": {
-      "enableMfgServiceConsole": true
-    },
-    "industriesManufacturingSettings":{
-      "enableIndManufacturing": true,
-      "enableIndustriesMfgAccountForecast": true,
-      "enableIndustriesMfgAdvForecast": true,
-      "enableIndustriesMfgTargets": true
-    },
-    "PathAssistantSettings": {
-      "pathAssistantEnabled": true
     }
   }
 }
