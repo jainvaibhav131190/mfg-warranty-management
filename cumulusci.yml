@@ -1,271 +1,238 @@
-minimum_cumulusci_version: '3.74.0'
+minimum_cumulusci_version: "3.74.0"
 project:
+  name: mfg-warranty-management
+  package:
     name: mfg-warranty-management
-    package:
-        name: mfg-warranty-management
-        api_version: '57.0'
-    git:
-        default_branch: 'main'
-        prefix_feature: 'feature/'
-        prefix_beta: 'beta/'
-        prefix_release: 'release/'
-        repo_url: https://github.com/Industries-SolutionFactory-Connect/mfg-warranty-management
-    source_format: sfdx
+    api_version: "57.0"
+  git:
+    default_branch: "main"
+    prefix_feature: "feature/"
+    prefix_beta: "beta/"
+    prefix_release: "release/"
+    repo_url: https://github.com/Industries-SolutionFactory-Connect/mfg-warranty-management
+  source_format: sfdx
 
 tasks:
-    robot:
-        options:
-            suites: robot/mfg-warranty-management/tests
-            options:
-                outputdir: robot/mfg-warranty-management/results
+  robot:
+    options:
+      suites: robot/mfg-warranty-management/tests
+      options:
+        outputdir: robot/mfg-warranty-management/results
 
-    robot_testdoc:
-        options:
-            path: robot/mfg-warranty-management/tests
-            output: robot/mfg-warranty-management/doc/mfg-warranty-management_tests.html
+  robot_testdoc:
+    options:
+      path: robot/mfg-warranty-management/tests
+      output: robot/mfg-warranty-management/doc/mfg-warranty-management_tests.html
 
-    run_tests:
-        options:
-            required_org_code_coverage_percent: 75
+  run_tests:
+    options:
+      required_org_code_coverage_percent: 75
 
-    enable_knowledge_for_users:
-        description: Enable Knowledge flag for Users
-        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
-        options:
-            path: anonymous_apex/KnowledgeUserPerm.apex
-        ui_options:
-            name: Enable Knowledge flag for Users
+  check_org_settings_value_knowledge:
+    description: Check for knowledge setting enablement
+    class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
+    options:
+      settings_type: KnowledgeSettings
+      settings_field: IsKnowledgeEnabled
+      value: True
 
-    check_org_settings_value_knowledge:
-        description: Check for knowledge setting enablement
-        class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
-        options:
-            settings_type: KnowledgeSettings
-            settings_field: IsKnowledgeEnabled
-            value: True
+  check_org_settings_value_path_assistant:
+    description: Check for knowledge setting enablement
+    class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
+    options:
+      settings_type: PathAssistantSettings
+      settings_field: PathAssistantEnabled
+      value: True
+
+  install_managed:
+    options:
+      security_type: NONE
+
+  update_dependencies:
+    options:
+      security_type: NONE
 
 flows:
-    dependencies:
-        steps:
-            3:
-                task: assign_permission_sets
-                options:
-                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
-                ui_options:
-                    name: Adding Permission Set to Admin User
-    config_dev:
-        steps:
-            3:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: AssetMilestoneMilestoneType
-                    entries:
-                        - fullName: 1 Month Service
-                          label: 1 Month Service
-                        - fullName: 3 Month Service
-                          label: 3 Month Service
-                        - fullName: 6 Month Service
-                          label: 6 Month Service
-                        - fullName: 1 Year Service
-                          label: 1 Year Service
-                        - fullName: 5 Year Service
-                          label: 5 Year Service
-                        - fullName: Extended Warranty
-                          label: Extended Warranty
-                        - fullName: Critical Recall
-                          label: Critical Recall
-                    ui_options:
-                        name: Add values to Asset Milestone Milestone Type picklist
-            4:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: CCPaymentDetailChargeType
-                    entries:
-                        - fullName: Expense
-                          label: Expense
-                    ui_options:
-                        name: Add values to Claim Coverage Payment Detail Charge Type picklist
-            5:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: Product2Family
-                    entries:
-                        - fullName: Generator
-                          label: Generator
-                        - fullName: Conditioner
-                          label: Conditioner
-                        - fullName: Compressor
-                          label: Compressor
-                    ui_options:
-                        name: Add values to Product Family picklist
-            6:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: UnitOfMeasureType
-                    entries:
-                        - fullName: Time
-                          label: Time
-                        - fullName: Period
-                          label: Period
-                        - fullName: Weight
-                          label: Weight
-                        - fullName: Distance
-                          label: Distance
-                        - fullName: Length
-                          label: Length
-                    ui_options:
-                        name: Add values to Unit of Measure Type picklist
-            7:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: WarrantyType
-                    entries:
-                        - fullName: Basic Warranty
-                          label: Basic Warranty
-                        - fullName: Extended Warranty
-                          label: Extended Warranty
-                    ui_options:
-                        name: Add values to Warranty Type picklist
-            
-            
+  deploy_qbrix:
+    steps:
+      1:
+        flow: dependencies
+      2:
+        flow: deploy_qbrix_min
+      3:
+        flow: post_qbrix_deploy
 
-    mfg_wm_install:
-        steps:
-            1:
-                task: assign_permission_sets
-                options:
-                    api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
-                ui_options:
-                    name: Adding Permission Set to Admin User
-            2:
-                task: deploy
-                options:
-                    path: force-app/main/default
-                ui_options:
-                    name: Deploy the Warranty Management Module Metadata
-            3:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: AssetMilestoneMilestoneType
-                    entries:
-                        - fullName: 1 Month Service
-                          label: 1 Month Service
-                        - fullName: 3 Month Service
-                          label: 3 Month Service
-                        - fullName: 6 Month Service
-                          label: 6 Month Service
-                        - fullName: 1 Year Service
-                          label: 1 Year Service
-                        - fullName: 5 Year Service
-                          label: 5 Year Service
-                        - fullName: Extended Warranty
-                          label: Extended Warranty
-                        - fullName: Critical Recall
-                          label: Critical Recall
-                    ui_options:
-                        name: Add values to Asset Milestone Milestone Type picklist
-            4:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: CCPaymentDetailChargeType
-                    entries:
-                        - fullName: Expense
-                          label: Expense
-                    ui_options:
-                        name: Add values to Claim Coverage Payment Detail Charge Type picklist
-            5:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: Product2Family
-                    entries:
-                        - fullName: Generator
-                          label: Generator
-                        - fullName: Conditioner
-                          label: Conditioner
-                        - fullName: Compressor
-                          label: Compressor
-                    ui_options:
-                        name: Add values to Product Family picklist
-            6:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: UnitOfMeasureType
-                    entries:
-                        - fullName: Time
-                          label: Time
-                        - fullName: Period
-                          label: Period
-                        - fullName: Weight
-                          label: Weight
-                        - fullName: Distance
-                          label: Distance
-                        - fullName: Length
-                          label: Length
-                    ui_options:
-                        name: Add values to Unit of Measure Type picklist
-            7:
-                task: add_standard_value_set_entries
-                options:
-                    api_names: WarrantyType
-                    entries:
-                        - fullName: Basic Warranty
-                          label: Basic Warranty
-                        - fullName: Extended Warranty
-                          label: Extended Warranty
-                    ui_options:
-                        name: Add values to Warranty Type picklist
+  deploy_qbrix_min:
+    steps:
+      1:
+        task: add_standard_value_set_entries
+        options:
+          api_names: AssetMilestoneMilestoneType
+          entries:
+            - fullName: 1 Month Service
+              label: 1 Month Service
+            - fullName: 3 Month Service
+              label: 3 Month Service
+            - fullName: 6 Month Service
+              label: 6 Month Service
+            - fullName: 1 Year Service
+              label: 1 Year Service
+            - fullName: 5 Year Service
+              label: 5 Year Service
+            - fullName: Extended Warranty
+              label: Extended Warranty
+            - fullName: Critical Recall
+              label: Critical Recall
+          ui_options:
+            name: Add Asset Milestone Milestone Type Values
+      2:
+        task: add_standard_value_set_entries
+        options:
+          api_names: CCPaymentDetailChargeType
+          entries:
+            - fullName: Expense
+              label: Expense
+          ui_options:
+            name: Add Claim Coverage Payment Detail Charge Type Values
+      3:
+        task: add_standard_value_set_entries
+        options:
+          api_names: Product2Family
+          entries:
+            - fullName: Generator
+              label: Generator
+            - fullName: Conditioner
+              label: Conditioner
+            - fullName: Compressor
+              label: Compressor
+          ui_options:
+            name: Add Product Family Values
+      4:
+        task: add_standard_value_set_entries
+        options:
+          api_names: UnitOfMeasureType
+          entries:
+            - fullName: Time
+              label: Time
+            - fullName: Period
+              label: Period
+            - fullName: Weight
+              label: Weight
+            - fullName: Distance
+              label: Distance
+            - fullName: Length
+              label: Length
+          ui_options:
+            name: Add Unit of Measure Type Values
+      5:
+        task: add_standard_value_set_entries
+        options:
+          api_names: WarrantyType
+          entries:
+            - fullName: Basic Warranty
+              label: Basic Warranty
+            - fullName: Extended Warranty
+              label: Extended Warranty
+          ui_options:
+            name: Add Warranty Type Values
+      6:
+        task: deploy
+        options:
+          path: force-app
+        ui_options:
+          name: Deploy Warranty Management Module Metadata
 
-    mfg_wm_data:
-        steps:
-            1:
-                task: load_sample_data
-                ui_options:
-                    name: Load Sample Data in Org
+  dependencies:
+    steps:
+      1:
+        flow: prepare_org
+      2:
+        flow: source_dependencies
 
+  source_dependencies:
+    steps:
+      1:
+        flow: None
+
+  post_qbrix_deploy:
+    steps:
+      1:
+        flow: None
+
+  prepare_org:
+    steps:
+      3:
+        task: update_dependencies
+      4:
+        task: assign_permission_sets
+        options:
+          api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
+        ui_options:
+          name: Assign Permission Sets to Admin User
+
+  dev_org:
+    steps:
+      1:
+        flow: None
+      2:
+        flow: deploy_qbrix
+      3:
+        flow: None
+
+  mfg_wm_data:
+    steps:
+      1:
+        task: load_sample_data
+        ui_options:
+          name: Load Sample Data
 
 plans:
-    install:
-        slug: install
-        title: Warranty Lifecycle Management Configuration
-        tier: primary
-        is_listed: True
-        preflight_message: "This will install Manufacturing Cloud Warranty Lifecycle Management Module"
-        post_install_message: "Thanks for installing Manufacturing Cloud Warranty Lifecycle Management Module. "
-        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
-        checks:
-          - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
-          - when: "'WarrantyMgmtForExprcCloudPsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator."
-          - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator." 
-          - when: "not tasks.check_org_settings_value_knowledge()"
-            action: error
-            message: "You need to enable 'Knowledge' under 'Knowledge Settings'"
-        steps:
-            1:
-                flow: mfg_wm_install
-    install_data:
-        slug: install_data
-        title: Sample Data Plan
-        tier: additional
-        is_listed: True
-        preflight_message: "This will install data for Warranty Lifecycle Management Module in your Org"
-        post_install_message: "Thanks for installing data for Warranty Lifecycle Management Module. "
-        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
-        checks:
-          - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
-          - when: "'WarrantyMgmtForExprcCloudPsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator."
-          - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
-            action: error
-            message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator." 
-        steps:
-            1:
-                flow: mfg_wm_data
+  install:
+    slug: install
+    title: Warranty Lifecycle Management Configuration
+    tier: primary
+    is_listed: True
+    preflight_message: "This will install Manufacturing Cloud Warranty Lifecycle Management Module"
+    post_install_message: "Thanks for installing Manufacturing Cloud Warranty Lifecycle Management Module. "
+    error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
+    checks:
+      - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
+      - when: "'WarrantyMgmtForExprcCloudPsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator."
+      - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator."
+      - when: "not tasks.check_org_settings_value_knowledge()"
+        action: error
+        message: "You need to enable Knowledge under Knowledge Settings in Setup"
+      - when: "not tasks.check_org_settings_value_path_assistant()"
+        action: error
+        message: "You need to enable Paths under Path Settings in Setup"
+    steps:
+      1:
+        flow: deploy_qbrix
+
+  install_data:
+    slug: install_data
+    title: Sample Data Plan
+    tier: additional
+    is_listed: True
+    preflight_message: "This will install data for Warranty Lifecycle Management Module in your Org"
+    post_install_message: "Thanks for installing data for Warranty Lifecycle Management Module. "
+    error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
+    checks:
+      - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
+      - when: "'WarrantyMgmtForExprcCloudPsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator."
+      - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator."
+    steps:
+      1:
+        flow: mfg_wm_data

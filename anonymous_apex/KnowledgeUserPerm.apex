@@ -1,1 +1,0 @@
-update new User(Id = UserInfo.getUserId(), UserPermissionsKnowledgeUser = true);

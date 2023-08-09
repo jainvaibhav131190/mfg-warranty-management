@@ -19,6 +19,12 @@
     },
     "languageSettings": {
       "enableTranslationWorkbench": true
+    },
+    "knowledgeSettings": {
+      "enableKnowledge": true
+    },
+    "pathAssistantSettings": {
+      "pathAssistantEnabled": true
     }
   }
 }
