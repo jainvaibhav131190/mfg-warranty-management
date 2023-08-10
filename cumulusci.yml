@@ -36,6 +36,14 @@ tasks:
       settings_field: IsKnowledgeEnabled
       value: True
 
+  check_org_settings_value_lightning_knowledge:
+    description: Check for knowledge setting enablement
+    class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
+    options:
+      settings_type: KnowledgeSettings
+      settings_field: IsLightningKnowledgeEnabled
+      value: True
+
   check_org_settings_value_path_assistant:
     description: Check for knowledge setting enablement
     class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
@@ -83,8 +91,8 @@ flows:
               label: Extended Warranty
             - fullName: Critical Recall
               label: Critical Recall
-          ui_options:
-            name: Add Asset Milestone Milestone Type Values
+        ui_options:
+          name: Add Asset Milestone Milestone Type Values
       2:
         task: add_standard_value_set_entries
         options:
@@ -92,8 +100,8 @@ flows:
           entries:
             - fullName: Expense
               label: Expense
-          ui_options:
-            name: Add Claim Coverage Payment Detail Charge Type Values
+        ui_options:
+          name: Add Claim Coverage Payment Detail Charge Type Values
       3:
         task: add_standard_value_set_entries
         options:
@@ -105,8 +113,8 @@ flows:
               label: Conditioner
             - fullName: Compressor
               label: Compressor
-          ui_options:
-            name: Add Product Family Values
+        ui_options:
+          name: Add Product Family Values
       4:
         task: add_standard_value_set_entries
         options:
@@ -122,8 +130,8 @@ flows:
               label: Distance
             - fullName: Length
               label: Length
-          ui_options:
-            name: Add Unit of Measure Type Values
+        ui_options:
+          name: Add Unit of Measure Type Values
       5:
         task: add_standard_value_set_entries
         options:
@@ -133,8 +141,8 @@ flows:
               label: Basic Warranty
             - fullName: Extended Warranty
               label: Extended Warranty
-          ui_options:
-            name: Add Warranty Type Values
+        ui_options:
+          name: Add Warranty Type Values
       6:
         task: deploy
         options:
@@ -208,6 +216,9 @@ plans:
       - when: "not tasks.check_org_settings_value_knowledge()"
         action: error
         message: "You need to enable Knowledge under Knowledge Settings in Setup"
+      - when: "not tasks.check_org_settings_value_lightning_knowledge()"
+        action: error
+        message: "You need to enable Lightning Knowledge under Knowledge Settings in Setup"
       - when: "not tasks.check_org_settings_value_path_assistant()"
         action: error
         message: "You need to enable Paths under Path Settings in Setup"

@@ -1,35 +1,24 @@
-Insert Account:
+ontacInsert Account:
   sf_object: Account
   table: Account
   fields:
-  - AccountNumber
-  - AccountSource
-  - AnnualRevenue
   - BillingCity
   - BillingCountry
-  - BillingGeocodeAccuracy
-  - BillingLatitude
-  - BillingLongitude
   - BillingPostalCode
   - BillingState
   - BillingStreet
   - Description
   - Fax
   - Industry
-  - Jigsaw
   - Name
   - NumberOfEmployees
   - Ownership
   - Phone
   - ShippingCity
   - ShippingCountry
-  - ShippingGeocodeAccuracy
-  - ShippingLatitude
-  - ShippingLongitude
   - ShippingPostalCode
   - ShippingState
   - ShippingStreet
-  - SicDesc
   - Type
   - Website
 
@@ -40,29 +29,20 @@ Insert CodeSet:
   - Code
   - CodeDescription
   - CodeSetKey
-  - CodeSetType
-  - EndDate
   - IsActive
   - IsCustomCode
   - IsPrimary
   - Name
-  - SourceSystem
-  - StartDate
-  - SystemVersion
 
 Insert Product2:
   sf_object: Product2
   table: Product2
   fields:
   - Description
-  - DisplayUrl
-  - ExternalId
   - Family
   - IsActive
   - Name
   - ProductCode
-  - QuantityUnitOfMeasure
-  - StockKeepingUnit
 
 Insert UnitOfMeasure:
   sf_object: UnitOfMeasure
@@ -94,38 +74,17 @@ Insert Contact:
   sf_object: Contact
   table: Contact
   fields:
-  - AssistantName
-  - AssistantPhone
-  - Birthdate
-  - Department
   - Description
   - Email
-  - EmailBouncedDate
-  - EmailBouncedReason
   - Fax
   - FirstName
-  - HomePhone
-  - Jigsaw
   - LastName
   - LeadSource
   - MailingCity
   - MailingCountry
-  - MailingGeocodeAccuracy
-  - MailingLatitude
-  - MailingLongitude
   - MailingPostalCode
   - MailingState
   - MailingStreet
-  - MobilePhone
-  - OtherCity
-  - OtherCountry
-  - OtherGeocodeAccuracy
-  - OtherLatitude
-  - OtherLongitude
-  - OtherPhone
-  - OtherPostalCode
-  - OtherState
-  - OtherStreet
   - Phone
   - Salutation
   - Title
@@ -218,32 +177,17 @@ Insert Asset:
   - Name
   - City
   - IsCompetitorProduct
-  - Country
-  - Description
-  - GeocodeAccuracy
   - InstallDate
   - IsInternal
-  - Latitude
-  - Longitude
-  - PostalCode
   - Price
   - PurchaseDate
   - Quantity
   - SerialNumber
-  - State
   - Status
-  - Street
-  - UsageEndDate
   lookups:
     AccountId:
       table: Account
       key_field: AccountId
-    AssetProvidedById:
-      table: Account
-      key_field: AssetProvidedById
-    AssetServicedById:
-      table: Account
-      key_field: AssetServicedById
     ContactId:
       table: Contact
       key_field: ContactId
@@ -285,8 +229,6 @@ Insert AssetWarranty:
   table: AssetWarranty
   fields:
   - EndDate
-  - ExchangeType
-  - Exclusions
   - ExpensesCovered
   - ExpensesCoveredEndDate
   - LaborCovered
@@ -315,9 +257,6 @@ Insert Case:
   - Description
   - SuppliedEmail
   - IsEscalated
-  - Comments
-  - SuppliedName
-  - SuppliedPhone
   - Priority
   - Status
   - Subject
@@ -352,15 +291,6 @@ Insert ClaimItem:
   fields:
   - AssetUsageUnitOfMeasure
   - AssetUsageValue
-  - Category
-  - CurrentCity
-  - CurrentCountry
-  - CurrentGeocodeAccuracy
-  - CurrentLatitude
-  - CurrentLongitude
-  - CurrentPostalCode
-  - CurrentState
-  - CurrentStreet
   - Description
   - FaultDate
   - Name
@@ -406,19 +336,8 @@ Insert WorkOrder:
   sf_object: WorkOrder
   table: WorkOrder
   fields:
-  - City
-  - Country
-  - Description
-  - Duration
   - DurationType
-  - EndDate
-  - GeocodeAccuracy
-  - Latitude
-  - Longitude
-  - PostalCode
   - Priority
-  - StartDate
-  - State
   - Status
   - Street
   - Subject
@@ -468,8 +387,6 @@ Insert RecordAlert:
   - Description
   - EffectiveDate
   - Severity
-  - SnoozeUntilDate
-  - SourceSystemIdentifier
   - Subject
   - ValidUntilDate
   lookups:
