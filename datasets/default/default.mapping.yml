@@ -311,7 +311,6 @@ Insert ClaimCoverage:
   - Description
   - Name
   - Status
-  - InternalReserveMode
   lookups:
     AssetWarrantyId:
       table: AssetWarranty

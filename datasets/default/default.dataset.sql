@@ -46,6 +46,7 @@ INSERT INTO "Asset" VALUES(1,'Marine Generator - MGX750XYMFG','','False','2023-0
 INSERT INTO "Asset" VALUES(2,'Acme Compressor - MGX751XYMFG','','False','2023-04-20','False','3250.0','2023-04-20','1.0','MGX751XYMFG','Installed','1','2','8');
 INSERT INTO "Asset" VALUES(3,'Expo Laptop 002 - GREY','','False','','False','1750.0','2022-07-18','1.0','EXPO6781','Purchased','4','7','9');
 INSERT INTO "Asset" VALUES(4,'Magna Alternator - ALTX001','','False','2023-07-21','False','3750.0','2023-07-10','1.0','ALX750XYMFG','Installed','4','6','11');
+INSERT INTO "Asset" VALUES(5,'Global Compressor - COMPX751XYMFG','','False','2022-08-18','False','675.0','2022-08-10','1.0','COMPX751XYMFG','Purchased','4','6','12');
 
 CREATE TABLE "AssetMilestone" (
 	id INTEGER NOT NULL, 
@@ -70,6 +71,9 @@ INSERT INTO "AssetMilestone" VALUES(10,'Order Received','2023-04-14','Order Rece
 INSERT INTO "AssetMilestone" VALUES(11,'Installed','2023-04-18','Delivered','Active','Manufacturing','1');
 INSERT INTO "AssetMilestone" VALUES(12,'Installed','2023-04-17','Delivered','Active','Manufacturing','2');
 INSERT INTO "AssetMilestone" VALUES(13,'1 Month Service','2023-05-31','1 Month Service','Active','Manufacturing','1');
+INSERT INTO "AssetMilestone" VALUES(14,'Order Received','2022-08-10','Order Received','Active','Manufacturing','5');
+INSERT INTO "AssetMilestone" VALUES(15,'Installed','2022-08-18','Delivered','Active','Manufacturing','5');
+INSERT INTO "AssetMilestone" VALUES(16,'1 Month Service Complete','2022-09-18','1 Month Service','Active','Manufacturing','5');
 
 CREATE TABLE "AssetWarranty" (
 	id INTEGER NOT NULL, 
@@ -95,6 +99,7 @@ INSERT INTO "AssetWarranty" VALUES(5,'2025-04-20','100.0','2025-04-20','100.0','
 INSERT INTO "AssetWarranty" VALUES(6,'2026-04-20','60.0','2026-04-20','100.0','2026-04-20','50.0','2026-04-20','2023-04-20','False','Extended Warranty','2','6');
 INSERT INTO "AssetWarranty" VALUES(7,'2025-04-18','50.0','2025-04-18','75.0','2025-04-18','50.0','2025-04-18','2023-04-18','False','Standard','1','2');
 INSERT INTO "AssetWarranty" VALUES(8,'2025-04-18','100.0','2025-04-18','100.0','2025-04-18','100.0','2025-04-18','2023-04-18','False','Standard','1','10');
+INSERT INTO "AssetWarranty" VALUES(9,'2024-08-19','100.0','2024-08-19','100.0','2024-08-19','100.0','2024-08-19','2022-08-18','False','Standard','5','11');
 
 CREATE TABLE "Case" (
 	id INTEGER NOT NULL, 
@@ -120,6 +125,9 @@ INSERT INTO "Case" VALUES(7,'Phone','New problem','Problem','','','','False','Hi
 INSERT INTO "Case" VALUES(8,'Phone','','Problem','','','','False','Medium','New','Quarterly Service - June 2023','1','1','2');
 INSERT INTO "Case" VALUES(9,'Phone','','Question','','When is the next service due for the asset ''Marine Generator - MGX750XYMFG''','','False','Medium','New','Asset Service','1','1','2');
 INSERT INTO "Case" VALUES(10,'Phone','New problem','Problem','','','','False','High','New','Noise coming out of the alternator','4','4','6');
+INSERT INTO "Case" VALUES(11,'Phone','','','','','','False','High','Escalated','Sample Case: Our Widgets have not been delivered.','2','','3');
+INSERT INTO "Case" VALUES(12,'Phone','Instructions not clear','Question','','','','False','Medium','New','When is the 3 month service date?','2','5','6');
+INSERT INTO "Case" VALUES(13,'Email','Instructions not clear','Question','','','','False','Medium','New','When is the 1 month servicing?','2','5','6');
 
 CREATE TABLE "Claim" (
 	id INTEGER NOT NULL, 
@@ -139,6 +147,9 @@ INSERT INTO "Claim" VALUES(1,'CL-100197','Battery was faulty','','Warranty Claim
 INSERT INTO "Claim" VALUES(2,'CL-00022','Wrong claim request','','Warranty Claim','','Phone','Medium','Rejected','','4');
 INSERT INTO "Claim" VALUES(3,'CL-00020','Replace Valve','','Warranty Claim','','Phone','Medium','Draft','','1');
 INSERT INTO "Claim" VALUES(4,'CL-00010','Generator Engine Issue','','Warranty Claim','','Phone','Medium','Under Review','','1');
+INSERT INTO "Claim" VALUES(5,'CL-00021','Battery had issues','','Warranty Claim','','Phone','High','Draft','','1');
+INSERT INTO "Claim" VALUES(6,'CL-00709','Replace Valve','','Warranty Claim','','Phone','Medium','Draft','','4');
+INSERT INTO "Claim" VALUES(7,'CL-0098','Belt Guard Repair','','Warranty Claim','','Mobile','High','Draft','','4');
 
 CREATE TABLE "ClaimCoverage" (
 	id INTEGER NOT NULL, 
@@ -146,7 +157,6 @@ CREATE TABLE "ClaimCoverage" (
 	"Description" VARCHAR(255), 
 	"Name" VARCHAR(255), 
 	"Status" VARCHAR(255), 
-	"InternalReserveMode" VARCHAR(255), 
 	"AssetWarrantyId" VARCHAR(255), 
 	"CausalPartId" VARCHAR(255), 
 	"ClaimId" VARCHAR(255), 
@@ -155,10 +165,15 @@ CREATE TABLE "ClaimCoverage" (
 	"ClaimParticipantId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','CoverageReserve','5','4','3','4','5','');
-INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','CoverageReserve','8','2','4','3','6','');
-INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','CoverageReserve','7','10','2','1','2','');
-INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','CoverageReserve','4','10','1','2','1','1');
+INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','5','4','3','4','5','');
+INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','8','2','4','3','6','');
+INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','7','10','2','1','2','');
+INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','4','10','1','2','1','1');
+
+INSERT INTO "ClaimCoverage" VALUES(5,'Standard Warranty','','Repair Battery','Open','6','10','5','5','10','1');
+INSERT INTO "ClaimCoverage" VALUES(6,'Standard Warranty','','Replace Valve','Open','9','4','6','6','5','2');
+INSERT INTO "ClaimCoverage" VALUES(7,'Standard Warranty','','Repair Belt Guard','Open','9','13','7','7','11','3');
+
 
 CREATE TABLE "ClaimCoveragePaymentDetail" (
 	id INTEGER NOT NULL, 
@@ -183,6 +198,11 @@ INSERT INTO "ClaimCoveragePaymentDetail" VALUES(5,'40.0','Replaced Part','350.0'
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(6,'40.0','Expense','100.0','','','CPN 00197 Technician Visit','','Approved','2','2','10');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(7,'0.0','Labor','40.0','','','CPN 00194 Replace Valve labor charge','1','None','5','1','');
 INSERT INTO "ClaimCoveragePaymentDetail" VALUES(8,'40.0','Labor','100.0','','','CPN 00196 Replace Cylinder Labor','5','Approved','7','2','');
+INSERT INTO "ClaimCoveragePaymentDetail" VALUES(9,'','Replaced Part','90.0','','','CPN 079 Repair Battery','1','None','','5','10');
+INSERT INTO "ClaimCoveragePaymentDetail" VALUES(10,'','Replaced Part','60.0','','','CPN 0019 Replace Valve','1','None','5','6','4');
+INSERT INTO "ClaimCoveragePaymentDetail" VALUES(11,'','Labor','25.0','','','CPN 0023 Replace Valve labor charge','1','None','5','6','4');
+INSERT INTO "ClaimCoveragePaymentDetail" VALUES(12,'','Replaced Part','67.0','','','CPN 006 Repair Belt Guard','1','None','11','7','13');
+INSERT INTO "ClaimCoveragePaymentDetail" VALUES(13,'','Replaced Part','25.0','','','CPN 007 Repair Belt Guard Technician Charges','1','None','11','7','13');
 
 CREATE TABLE "ClaimItem" (
 	id INTEGER NOT NULL, 
@@ -200,6 +220,10 @@ INSERT INTO "ClaimItem" VALUES(1,'','','Battery needs replacement','2023-07-22T1
 INSERT INTO "ClaimItem" VALUES(2,'','','','2023-02-20T20:00:00.000+0000','CLI-000207','2023-03-01T20:00:00.000+0000','3','1');
 INSERT INTO "ClaimItem" VALUES(3,'Hours','750','','2023-04-18T19:00:00.000+0000','CLI-000214','2023-04-20T19:00:00.000+0000','1','4');
 INSERT INTO "ClaimItem" VALUES(4,'Hours','750','','2023-05-25T19:00:00.000+0000','CLI-000210','2023-05-28T19:00:00.000+0000','2','3');
+INSERT INTO "ClaimItem" VALUES(5,'Hours','750','','2023-05-26T19:00:00.000+0000','CLI-000219','2023-05-30T19:00:00.000+0000','5','5');
+INSERT INTO "ClaimItem" VALUES(6,'Hours','564','','2023-05-26T19:00:00.000+0000','CLI-000288','2023-05-30T19:00:00.000+0000','5','6');
+INSERT INTO "ClaimItem" VALUES(7,'Hours','480','','2023-07-07T19:00:00.000+0000','CLI-000302','2023-07-12T19:00:00.000+0000','5','7');
+
 
 CREATE TABLE "ClaimParticipant" (
 	id INTEGER NOT NULL, 
@@ -210,6 +234,8 @@ CREATE TABLE "ClaimParticipant" (
 	PRIMARY KEY (id)
 );
 INSERT INTO "ClaimParticipant" VALUES(1,'Claimant','1','4','7');
+INSERT INTO "ClaimParticipant" VALUES(2,'Claimant','6','5','6');
+INSERT INTO "ClaimParticipant" VALUES(3,'Claimant','7','5','7');
 
 CREATE TABLE "CodeSet" (
 	id INTEGER NOT NULL, 
@@ -231,6 +257,9 @@ INSERT INTO "CodeSet" VALUES(6,'C01- Cylinder Misfire','','fcdb444dd2025f4a377d8
 INSERT INTO "CodeSet" VALUES(7,'C92 - Replace Cylinder','','4f1ee93f1b31f01d1748e508f1ca78b0-501354096','True','False','False','Replace Cylinder');
 INSERT INTO "CodeSet" VALUES(8,'C08- Engine Oil Change','','92d6f14294e958c7beec4d54b4d05366714129323','True','False','False','Engine Oil Change');
 INSERT INTO "CodeSet" VALUES(9,'C06 - Repair Fuel Tank','','2e45f7c768e98ea949f0765a119cc909-2034434','True','False','False','Repair Fuel Tank');
+INSERT INTO "CodeSet" VALUES(10,'C02 - Repair Battery','','33f92b69081811907278c10994fa48f6-542775039','True','False','False','Repair Battery');
+INSERT INTO "CodeSet" VALUES(11,'P007 - Repair Belt Guard','','c72544d5abde9407536e0f5cd77e606a-466200590','True','False','False','Repair Belt Guard');
+
 
 CREATE TABLE "Contact" (
 	id INTEGER NOT NULL, 
@@ -278,6 +307,8 @@ INSERT INTO "Product2" VALUES(8,'','Compressor','True','Acme Compressor MGX751',
 INSERT INTO "Product2" VALUES(9,'Premium brand of laptop','None','True','Expo Laptop 002','EXPO 00246');
 INSERT INTO "Product2" VALUES(10,'','Generator','True','Battery Aura','P22');
 INSERT INTO "Product2" VALUES(11,'A premium range of alternators','Generator','True','Magna Alternator','AL-000AL01');
+INSERT INTO "Product2" VALUES(12,'','Compressor','True','Global Compressor','P99');
+INSERT INTO "Product2" VALUES(13,'','Compressor','True','Pro Belt Guard','PBG 001');
 
 CREATE TABLE "ProductFaultCode" (
 	id INTEGER NOT NULL, 
@@ -353,6 +384,7 @@ INSERT INTO "WarrantyTerm" VALUES(7,'True','','','Install Date','','','40.0','1'
 INSERT INTO "WarrantyTerm" VALUES(8,'True','','','Install Date','','','','','','','','','','','','False','','24','Mini Air Conditioner Std. Warranty','Standard','Weeks','');
 INSERT INTO "WarrantyTerm" VALUES(9,'True','','','Install Date','','','100.0','24','Months','100.0','24','Months','100.0','24','Months','False','','24','Acme Compressor Standard Warranty','Standard','Months','');
 INSERT INTO "WarrantyTerm" VALUES(10,'True','','','Install Date','','','100.0','12','Months','100.0','12','Months','100.0','12','Months','False','','12','Marine Generator Standard Warranty','Standard','Months','');
+INSERT INTO "WarrantyTerm" VALUES(11,'True','','','Install Date','','','100.0','24','Months','100.0','24','Months','100.0','24','Months','False','','24','Global Compressor Standard Warranty','Standard','Months','');
 
 CREATE TABLE "WarrantyTermCoverage" (
 	id INTEGER NOT NULL, 
@@ -396,6 +428,8 @@ INSERT INTO "WorkOrder" VALUES(8,'Hours','Low','New','','Quarterly Service - Jun
 INSERT INTO "WorkOrder" VALUES(9,'Hours','High','New','','6 Month Service - Oct 2023','','1','2','','');
 INSERT INTO "WorkOrder" VALUES(10,'Hours','Low','New','','3 Month Service - July 2023','','1','2','','');
 INSERT INTO "WorkOrder" VALUES(11,'Hours','High','New','','1 Year Service - Mar 2024','','1','2','','');
+INSERT INTO "WorkOrder" VALUES(12,'Hours','Medium','New','','1 Month Servicing','','4','5','13','6');
+INSERT INTO "WorkOrder" VALUES(13,'Hours','Medium','New','','3 Month Servicing','','4','5','12','6');
 
 CREATE TABLE "RecordAlert" (
 	id INTEGER NOT NULL, 
@@ -417,5 +451,7 @@ INSERT INTO "RecordAlert" VALUES(6,'True','','2023-04-18T19:00:00.000+0000','Inf
 INSERT INTO "RecordAlert" VALUES(7,'True','','2023-07-23T19:00:00.000+0000','Info','Asset monthly servicing completed','2024-07-31T19:00:00.000+0000','2');
 INSERT INTO "RecordAlert" VALUES(8,'False','','2023-07-23T19:00:00.000+0000','Warning','Asset warranty renewal required','2024-07-31T19:00:00.000+0000','1');
 INSERT INTO "RecordAlert" VALUES(9,'True','','2023-07-23T19:00:00.000+0000','Warning','Warranty Renewal Required','2024-07-31T19:00:00.000+0000','2');
+INSERT INTO "RecordAlert" VALUES(10,'True','','2023-07-23T19:00:00.000+0000','Info','Asset monthly servicing completed','2024-07-31T19:00:00.000+0000','5');
+INSERT INTO "RecordAlert" VALUES(11,'True','','2023-07-27T19:00:00.000+0000','Warning','Warranty Renewal Required','2025-07-31T19:00:00.000+0000','5');
 
 COMMIT;

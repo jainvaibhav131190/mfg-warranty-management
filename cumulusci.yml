@@ -44,14 +44,6 @@ tasks:
       settings_field: IsLightningKnowledgeEnabled
       value: True
 
-  check_org_settings_value_path_assistant:
-    description: Check for knowledge setting enablement
-    class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
-    options:
-      settings_type: PathAssistantSettings
-      settings_field: PathAssistantEnabled
-      value: True
-
   install_managed:
     options:
       security_type: NONE
@@ -146,7 +138,7 @@ flows:
       6:
         task: deploy
         options:
-          path: force-app
+          path: force-app/main/default
         ui_options:
           name: Deploy Warranty Management Module Metadata
 
@@ -160,7 +152,11 @@ flows:
   source_dependencies:
     steps:
       1:
-        flow: None
+        task: deploy
+        options:
+          path: force-app/main/pre
+        ui_options:
+          name: Deploy Expression Set Alias Metadata
 
   post_qbrix_deploy:
     steps:
@@ -204,6 +200,9 @@ plans:
     post_install_message: "Thanks for installing Manufacturing Cloud Warranty Lifecycle Management Module. "
     error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
     checks:
+      - when: "'MfgServiceConsole' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need MfgServiceConsole licence in your Org to use this feature. Contact your Administrator."
       - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
         action: error
         message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
@@ -219,9 +218,6 @@ plans:
       - when: "not tasks.check_org_settings_value_lightning_knowledge()"
         action: error
         message: "You need to enable Lightning Knowledge under Knowledge Settings in Setup"
-      - when: "not tasks.check_org_settings_value_path_assistant()"
-        action: error
-        message: "You need to enable Paths under Path Settings in Setup"
     steps:
       1:
         flow: deploy_qbrix
@@ -235,6 +231,9 @@ plans:
     post_install_message: "Thanks for installing data for Warranty Lifecycle Management Module. "
     error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
     checks:
+      - when: "'MfgServiceConsole' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need MfgServiceConsole licence in your Org to use this feature. Contact your Administrator."
       - when: "'WarrantyLifecycleMgmtPsl' not in tasks.get_available_permission_set_licenses()"
         action: error
         message: "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator."
