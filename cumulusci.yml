@@ -156,7 +156,7 @@ flows:
         options:
           path: force-app/main/pre
         ui_options:
-          name: Deploy Expression Set Alias Metadata
+          name: Deploy Settings and Expression Set Alias Metadata
 
   post_qbrix_deploy:
     steps:
