@@ -265,7 +265,7 @@ plans:
       - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
         action: error
         message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator."
-       - when: "'BREDesigner' not in tasks.get_available_permission_set_licenses()"
+      - when: "'BREDesigner' not in tasks.get_available_permission_set_licenses()"
         action: error
         message: "You need BREDesigner licence in your Org to use this feature. Contact your Administrator."
       - when: "'DecisionExplainerPSL' not in tasks.get_available_permission_set_licenses()"
