@@ -30,7 +30,7 @@ class CheckExpressionSet(BaseSalesforceApiTask):
         
         values = results[0]["Status"]
         
-        self.return_values = values != "Active"
+        self.return_values = values == "Active"
 
         self.logger.info(
             f"Completed Expression Set Inactive preflight check with result {self.return_values}"
