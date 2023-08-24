@@ -22,11 +22,11 @@ class CheckExpressionSet(BaseSalesforceApiTask):
 
         if not results:
             self.logger.info(
-                "Located no Settings records. Returning negative preflight result."
+                "Located no Settings records. Returning positive preflight result."
             )
-            self.return_values = False
-
-            return
+            self.return_values = True
+            
+            return self.return_values
         
         values = results[0]["Status"]
         
