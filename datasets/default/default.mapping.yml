@@ -103,15 +103,9 @@ Insert ClaimParticipant:
   fields:
   - Roles
   lookups:
-    ParticipantAccountId:
-      table: Account
-      key_field: ParticipantAccountId
     ClaimId:
       table: Claim
       key_field: ClaimId
-    ParticipantContactId:
-      table: Contact
-      key_field: ParticipantContactId
 
 Insert ProductFaultCode:
   sf_object: ProductFaultCode
