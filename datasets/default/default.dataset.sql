@@ -169,7 +169,6 @@ INSERT INTO "ClaimCoverage" VALUES(1,'Standard Warranty','','Replace Valve','','
 INSERT INTO "ClaimCoverage" VALUES(2,'Standard Warranty','','Cylinder Misfire','','8','2','4','3','6','');
 INSERT INTO "ClaimCoverage" VALUES(3,'Standard Warranty','','Battery Replacement','10','7','10','2','1','2','');
 INSERT INTO "ClaimCoverage" VALUES(4,'Standard Warranty','','Laptop Battery Replacement','Approved','4','10','1','2','1','1');
-
 INSERT INTO "ClaimCoverage" VALUES(5,'Standard Warranty','','Repair Battery','Open','6','10','5','5','10','1');
 INSERT INTO "ClaimCoverage" VALUES(6,'Standard Warranty','','Replace Valve','Open','9','4','6','6','5','2');
 INSERT INTO "ClaimCoverage" VALUES(7,'Standard Warranty','','Repair Belt Guard','Open','9','13','7','7','11','3');

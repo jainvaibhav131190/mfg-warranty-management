@@ -7,6 +7,7 @@
     <types>
         <members>MfgServiceConsole</members>
         <members>WarrantyLifecycleMgmt</members>
+        <members>Industries</members>
         <name>Settings</name>
     </types>
     <version>58.0</version>

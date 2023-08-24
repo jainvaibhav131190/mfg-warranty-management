@@ -43,6 +43,10 @@ tasks:
       settings_type: KnowledgeSettings
       settings_field: IsLightningKnowledgeEnabled
       value: True
+  
+  check_expression_set_inactive:
+    description: Check expression set is inactive
+    class_path: cumulusci_ext.tasks.check_expr_set_inactive.CheckExpressionSet
 
   install_managed:
     options:
@@ -170,7 +174,7 @@ flows:
       4:
         task: assign_permission_sets
         options:
-          api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl
+          api_names: MfgServiceConsole,WarrantyLifecycleMgmtPsl,ClaimsManagementFoundationPsl,LifeEventsAccessPSL,BREDesigner
         ui_options:
           name: Assign Permission Sets to Admin User
 
@@ -212,12 +216,30 @@ plans:
       - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
         action: error
         message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator."
+      - when: "'BREDesigner' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need BREDesigner licence in your Org to use this feature. Contact your Administrator."
+      - when: "'DecisionExplainerPSL' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need DecisionExplainerPSL licence in your Org to use this feature. Contact your Administrator."
+      - when: "'LifeEventsAccessPSL' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need LifeEventsAccessPSL licence in your Org to use this feature. Contact your Administrator."
+      - when: "'IndustriesServiceExcellencePsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need IndustriesServiceExcellencePsl licence in your Org to use this feature. Contact your Administrator."
+      - when: "'OmniStudioDesigner' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need OmniStudioDesigner licence in your Org to use this feature. Contact your Administrator."
       - when: "not tasks.check_org_settings_value_knowledge()"
         action: error
         message: "You need to enable Knowledge under Knowledge Settings in Setup"
       - when: "not tasks.check_org_settings_value_lightning_knowledge()"
         action: error
         message: "You need to enable Lightning Knowledge under Knowledge Settings in Setup"
+      - when: "not tasks.check_expression_set_inactive()"
+        action: error
+        message: "You need to disable the Expression Set to deploy the components"
     steps:
       1:
         flow: deploy_qbrix
@@ -243,6 +265,21 @@ plans:
       - when: "'ClaimsManagementFoundationPsl' not in tasks.get_available_permission_set_licenses()"
         action: error
         message: "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator."
+       - when: "'BREDesigner' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need BREDesigner licence in your Org to use this feature. Contact your Administrator."
+      - when: "'DecisionExplainerPSL' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need DecisionExplainerPSL licence in your Org to use this feature. Contact your Administrator."
+      - when: "'LifeEventsAccessPSL' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need LifeEventsAccessPSL licence in your Org to use this feature. Contact your Administrator."
+      - when: "'IndustriesServiceExcellencePsl' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need IndustriesServiceExcellencePsl licence in your Org to use this feature. Contact your Administrator."
+      - when: "'OmniStudioDesigner' not in tasks.get_available_permission_set_licenses()"
+        action: error
+        message: "You need OmniStudioDesigner licence in your Org to use this feature. Contact your Administrator."
     steps:
       1:
         flow: mfg_wm_data
