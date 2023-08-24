@@ -228,13 +228,11 @@ CREATE TABLE "ClaimParticipant" (
 	id INTEGER NOT NULL, 
 	"Roles" VARCHAR(255), 
 	"ClaimId" VARCHAR(255), 
-	"ParticipantAccountId" VARCHAR(255), 
-	"ParticipantContactId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "ClaimParticipant" VALUES(1,'Claimant','1','4','7');
-INSERT INTO "ClaimParticipant" VALUES(2,'Claimant','6','5','6');
-INSERT INTO "ClaimParticipant" VALUES(3,'Claimant','7','5','7');
+INSERT INTO "ClaimParticipant" VALUES(1,'Claimant','1');
+INSERT INTO "ClaimParticipant" VALUES(2,'Claimant','6');
+INSERT INTO "ClaimParticipant" VALUES(3,'Claimant','7');
 
 CREATE TABLE "CodeSet" (
 	id INTEGER NOT NULL, 
