@@ -20,10 +20,26 @@
     "languageSettings": {
       "enableTranslationWorkbench": true
     },
-    "knowledgeSettings": {
-      "enableKnowledge": true
+    "MfgServiceConsoleSettings": {
+      "enableMfgServiceConsole": true
     },
-    "pathAssistantSettings": {
+    "KnowledgeSettings": {
+      "enableKnowledge": true,
+      "enableKnowledgeArticleTextHighlights": true,
+      "enableKnowledgeKeywordAutoComplete": true,
+      "enableKnowledgeTitleAutoComplete": true,
+      "enableLightningKnowledge": true,
+      "votingEnabled": true,
+      "cases": {
+        "enableCaseDataCategoryMapping": true
+      },
+      "enableCreateEditOnArticlesTab": true,
+      "enableExternalMediaContent": true
+    },
+    "IndustriesSettings": {
+      "enableTimelinePref": true
+    },
+    "PathAssistantSettings": {
       "pathAssistantEnabled": true
     }
   }
