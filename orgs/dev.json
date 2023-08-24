@@ -1,6 +1,6 @@
 {
   "orgName": "mfg-warranty-management - Dev Org",
-  "template": "0TTB0000001YKuy",
+  "template": "0TTB00000021uJD",
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
@@ -20,12 +20,6 @@
     "languageSettings": {
       "enableTranslationWorkbench": true
     },
-    "WarrantyLifecycleMgmtSettings": {
-      "enableWarrantyLCMgmt": true
-    },
-    "IndustriesSettings": {
-      "enableTimelinePref": true
-    },
     "MfgServiceConsoleSettings": {
       "enableMfgServiceConsole": true
     },
@@ -41,6 +35,9 @@
       },
       "enableCreateEditOnArticlesTab": true,
       "enableExternalMediaContent": true
+    },
+    "IndustriesSettings": {
+      "enableTimelinePref": true
     },
     "PathAssistantSettings": {
       "pathAssistantEnabled": true

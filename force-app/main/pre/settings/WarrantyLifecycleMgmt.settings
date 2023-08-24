@@ -3,7 +3,6 @@
    ~ All Rights Reserved
    ~ Company Confidential
    -->
-<WarrantyLifecycleMgmtSettings
-	xmlns="http://soap.sforce.com/2006/04/metadata">
+<WarrantyLifecycleMgmtSettings xmlns="http://soap.sforce.com/2006/04/metadata">
 	<enableWarrantyLCMgmt>true</enableWarrantyLCMgmt>
 </WarrantyLifecycleMgmtSettings>
