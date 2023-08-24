@@ -25,12 +25,12 @@ class CheckExpressionSet(BaseSalesforceApiTask):
                 "Located no Settings records. Returning positive preflight result."
             )
             self.return_values = True
-            
+
             return self.return_values
         
         values = results[0]["Status"]
         
-        self.return_values = values == "Active"
+        self.return_values = values != "Active"
 
         self.logger.info(
             f"Completed Expression Set Inactive preflight check with result {self.return_values}"
