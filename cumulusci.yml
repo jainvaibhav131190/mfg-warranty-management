@@ -237,9 +237,9 @@ plans:
       - when: "not tasks.check_org_settings_value_lightning_knowledge()"
         action: error
         message: "You need to enable Lightning Knowledge under Knowledge Settings in Setup"
-      # - when: "not tasks.check_expression_set_inactive()"
-      #   action: error
-      #   message: "You need to disable the Expression Set to deploy the components"
+      - when: "not tasks.check_expression_set_inactive()"
+        action: error
+        message: "You need to disable the Expression Set to deploy the components"
     steps:
       1:
         flow: deploy_qbrix
