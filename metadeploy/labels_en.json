@@ -1,0 +1,140 @@
+{
+    "product": {
+        "title": {
+            "message": "Warranty Management",
+            "description": "name of product"
+        }
+    },
+    "plan:install": {
+        "title": {
+            "message": "Warranty Lifecycle Management Configuration",
+            "description": "title of installation plan"
+        },
+        "preflight_message": {
+            "message": "This will install Manufacturing Cloud Warranty Lifecycle Management Module",
+            "description": "shown before user starts installation (markdown)"
+        },
+        "post_install_message": {
+            "message": "Thanks for installing Manufacturing Cloud Warranty Lifecycle Management Module. ",
+            "description": "shown after successful installation (markdown)"
+        },
+        "error_message": {
+            "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include \u201cPMM\u201d in the subject line and include in your comment the installation link shown here.",
+            "description": "shown after failed installation (markdown)"
+        }
+    },
+    "checks": {
+        "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need WarrantyLifecycleMgmtPsl licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need WarrantyMgmtForExprcCloudPsl licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need ClaimsManagementFoundationPsl license in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need to enable Knowledge under Knowledge Settings in Setup": {
+            "message": "You need to enable Knowledge under Knowledge Settings in Setup",
+            "description": "shown if validation fails"
+        },
+        "You need to enable Paths under Path Settings in Setup": {
+            "message": "You need to enable Paths under Path Settings in Setup",
+            "description": "shown if validation fails"
+        },
+        "You need MfgServiceConsole licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need MfgServiceConsole licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need BREDesigner licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need BREDesigner licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need DecisionExplainerPSL licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need DecisionExplainerPSL licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need LifeEventsAccessPSL licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need LifeEventsAccessPSL licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need IndustriesServiceExcellencePsl licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need IndustriesServiceExcellencePsl licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need OmniStudioDesigner licence in your Org to use this feature. Contact your Administrator.": {
+            "message": "You need OmniStudioDesigner licence in your Org to use this feature. Contact your Administrator.",
+            "description": "shown if validation fails"
+        },
+        "You need to enable Lightning Knowledge under Knowledge Settings in Setup": {
+            "message": "You need to enable Lightning Knowledge under Knowledge Settings in Setup",
+            "description": "shown if validation fails"
+        },
+        "You need to disable the Expression Set to deploy the components": {
+            "message": "You need to disable the Expression Set to deploy the components",
+            "description": "shown if validation fails"
+        }
+    },
+    "steps": {
+        "Assign Permission Sets to Admin User": {
+            "message": "Assign Permission Sets to Admin User",
+            "description": "title of installation step"
+        },
+        "add_standard_value_set_entries": {
+            "message": "add_standard_value_set_entries",
+            "description": "title of installation step"
+        },
+        "Deploy Warranty Management Module Metadata": {
+            "message": "Deploy Warranty Management Module Metadata",
+            "description": "title of installation step"
+        },
+        "Load Sample Data": {
+            "message": "Load Sample Data",
+            "description": "title of installation step"
+        },
+        "Deploy Settings and Expression Set Alias Metadata": {
+            "message": "Deploy Settings and Expression Set Alias Metadata",
+            "description": "title of installation step"
+        },
+        "Add Asset Milestone Milestone Type Values": {
+            "message": "Add Asset Milestone Milestone Type Values",
+            "description": "title of installation step"
+        },
+        "Add Claim Coverage Payment Detail Charge Type Values": {
+            "message": "Add Claim Coverage Payment Detail Charge Type Values",
+            "description": "title of installation step"
+        },
+        "Add Product Family Values": {
+            "message": "Add Product Family Values",
+            "description": "title of installation step"
+        },
+        "Add Unit of Measure Type Values": {
+            "message": "Add Unit of Measure Type Values",
+            "description": "title of installation step"
+        },
+        "Add Warranty Type Values": {
+            "message": "Add Warranty Type Values",
+            "description": "title of installation step"
+        }
+    },
+    "plan:install_data": {
+        "title": {
+            "message": "Sample Data Plan",
+            "description": "title of installation plan"
+        },
+        "preflight_message": {
+            "message": "This will install data for Warranty Lifecycle Management Module in your Org",
+            "description": "shown before user starts installation (markdown)"
+        },
+        "post_install_message": {
+            "message": "Thanks for installing data for Warranty Lifecycle Management Module. ",
+            "description": "shown after successful installation (markdown)"
+        },
+        "error_message": {
+            "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include \u201cPMM\u201d in the subject line and include in your comment the installation link shown here.",
+            "description": "shown after failed installation (markdown)"
+        }
+    }
+}
