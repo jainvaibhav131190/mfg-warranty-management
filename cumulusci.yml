@@ -27,22 +27,6 @@ tasks:
   run_tests:
     options:
       required_org_code_coverage_percent: 75
-
-  check_org_settings_value_knowledge:
-    description: Check for knowledge setting enablement
-    class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
-    options:
-      settings_type: KnowledgeSettings
-      settings_field: IsKnowledgeEnabled
-      value: True
-
-  check_org_settings_value_lightning_knowledge:
-    description: Check for knowledge setting enablement
-    class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
-    options:
-      settings_type: KnowledgeSettings
-      settings_field: IsLightningKnowledgeEnabled
-      value: True
   
   check_expression_set_inactive:
     description: Check expression set is inactive
@@ -231,12 +215,6 @@ plans:
       - when: "'OmniStudioDesigner' not in tasks.get_available_permission_set_licenses()"
         action: error
         message: "You need OmniStudioDesigner licence in your Org to use this feature. Contact your Administrator."
-      - when: "not tasks.check_org_settings_value_knowledge()"
-        action: error
-        message: "You need to enable Knowledge under Knowledge Settings in Setup"
-      - when: "not tasks.check_org_settings_value_lightning_knowledge()"
-        action: error
-        message: "You need to enable Lightning Knowledge under Knowledge Settings in Setup"
       - when: "not tasks.check_expression_set_inactive()"
         action: error
         message: "You need to disable the Expression Set to deploy the components"
